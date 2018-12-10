@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import { Input } from '../components/Search/Search-styles';
+// import { Input } from '../components/Search/Search-styles';
 import axios from 'axios';
 
 class SearchMovies extends Component {
 
   state = {
+    apiKey: 'a70dbfe19b800809dfdd3e89e8532c9e',
     data: [],
+    inputValue: null,
     getData: false
   }
+
+  changeHandler = (e) => {
+    this.setState({
+      inputValue: e.target.value
+    })
+  };
 
   componentDidMount() {
     console.log('componentDidMount');
 
-    const apiKey = 'a70dbfe19b800809dfdd3e89e8532c9e';
     axios.defaults.baseURL = 'https://api.themoviedb.org/3/search/';
 
-    axios.get(`tv?api_key=${apiKey}&query=Ozark`)
+    axios.get(`tv?api_key=${this.state.apiKey}&query=${this.state.inputValue}`)
       .then(response => {
         // console.log(response.data)
         this.setState({
@@ -40,7 +47,7 @@ class SearchMovies extends Component {
 
     return (
       <>
-        <Input type="text" placeholder="podaj fraze" />
+        <input type="text" onChange={this.changeHandler} />
         {data}
       </>
     )

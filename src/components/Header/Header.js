@@ -3,12 +3,12 @@ import Navbar from '../Navbar/Navbar';
 import { LayoutContainer } from '../Styled-components/LayoutContainer';
 import SearchMovies from '../../containers/Search-movies';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <Navbar />
       <LayoutContainer>
-        <SearchMovies />
+        <SearchMovies /> {/* render input and data.. */}
       </LayoutContainer>
     </header>
   )
