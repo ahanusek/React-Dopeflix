@@ -1,18 +1,15 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import Search from '../Search/Search';
 import { LayoutContainer } from '../Styled-components/LayoutContainer';
+import SearchMovies from '../../containers/Search-movies';
 
 const Header = () => {
   return (
     <header>
       <Navbar />
-
-      {/* LayoutContainer = container with: width: 80% margin: auto */}
       <LayoutContainer>
-        <Search test="Wpisz fraze.." />
+        <SearchMovies />
       </LayoutContainer>
-
     </header>
   )
 };
