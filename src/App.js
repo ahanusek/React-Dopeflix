@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-
+import Header from './containers/Header/Header';
+import Layout from './containers/Styled-components/Layout';
 
 class App extends Component {
   render() {
     return (
       <>
-        <h1>Dopeflix</h1>
+        <Layout>
+          <Header />
+        </Layout>
       </>
     );
   }
