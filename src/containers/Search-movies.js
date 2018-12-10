@@ -17,14 +17,15 @@ class SearchMovies extends Component {
     })
   };
 
-  componentDidMount() {
-    console.log('componentDidMount');
+  sendHandler = (e) => {
+    e.preventDefault();
 
     axios.defaults.baseURL = 'https://api.themoviedb.org/3/search/';
 
-    axios.get(`tv?api_key=${this.state.apiKey}&query=${this.state.inputValue}`)
+    axios.get(`tv?api_key=${this.state.apiKey}&query=${this.state.inputValue}&language=pl`)
       .then(response => {
-        // console.log(response.data)
+        console.log(response.data);
+
         this.setState({
           data: response.data,
           getData: true
@@ -33,21 +34,30 @@ class SearchMovies extends Component {
       .catch(error => {
         console.log(error);
       })
-  };
+  }
 
   render() {
     let data;
 
     if (this.state.getData === true) {
       data = this.state.data.results.map(item => {
-        console.log(item);
-        return <p key={item.id}>{item.name}</p>
+        return (
+          <div key={item.id}>
+            <p>Nazwa: {item.name}</p>
+            <p>Opis: {item.overview}</p>
+            <img src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt="Brak obrazka" />
+            <hr />
+          </div>
+        )
       });
     }
 
     return (
       <>
-        <input type="text" onChange={this.changeHandler} />
+        <form onSubmit={this.sendHandler}>
+          <input type="text" onChange={this.changeHandler} />
+          <input type="submit" />
+        </form>
         {data}
       </>
     )
