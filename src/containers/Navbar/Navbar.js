@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Nav, LogoWrapper, BrandLogo, Hamburger, Ul, Li } from './Navbar-styles';
 import { Nav, BrandLogo, Hamburger, Wrapper, Ul, Li } from './Navbar-styles';
 
 const foo = (e) => {
