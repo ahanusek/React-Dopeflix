@@ -29,17 +29,19 @@ class SearchMovies extends Component {
   };
 
   render() {
+    let data;
 
     if (this.state.getData === true) {
-      const data = this.state.data.results.map(item => {
+      data = this.state.data.results.map(item => {
         console.log(item);
-        return <p>{item}</p>
+        return <p key={item.id}>{item.name}</p>
       });
     }
 
     return (
       <>
         <Input type="text" placeholder="podaj fraze" />
+        {data}
       </>
     )
   }
