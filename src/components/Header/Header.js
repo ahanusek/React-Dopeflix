@@ -1,9 +1,9 @@
-import React from 'react';
-import Navbar from '../Navbar/Navbar';
-import { LayoutContainer } from '../Styled-components/LayoutContainer';
-import SearchMovies from '../../containers/Search-movies';
+import React from "react";
+import Navbar from "../Navbar/Navbar";
+import { LayoutContainer } from "../Globalstyles/LayoutContainer";
+import SearchMovies from "../../containers/Search-movies";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <Navbar />
@@ -11,7 +11,7 @@ const Header = (props) => {
         <SearchMovies /> {/* render input and data.. */}
       </LayoutContainer>
     </header>
-  )
+  );
 };
 
 export default Header;

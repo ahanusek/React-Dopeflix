@@ -1,67 +1,71 @@
-import React, { Component } from 'react';
-// import { Input } from '../components/Search/Search-styles';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
+import { Input } from "../components/Globalstyles/Input";
+import { Form } from "../components/Globalstyles/Form";
+import { Button } from "../components/Globalstyles/Button";
+import Results from "../components/Header/Results";
 
 class SearchMovies extends Component {
-
   state = {
-    apiKey: 'a70dbfe19b800809dfdd3e89e8532c9e',
     data: [],
     inputValue: null,
     getData: false
-  }
-
-  changeHandler = (e) => {
-    this.setState({
-      inputValue: e.target.value
-    })
   };
 
-  sendHandler = (e) => {
+  changeHandler = e => {
+    this.setState({
+      inputValue: e.target.value
+    });
+  };
+
+  sendHandler = e => {
     e.preventDefault();
+    const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
+    axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
 
-    axios.defaults.baseURL = 'https://api.themoviedb.org/3/search/';
-
-    axios.get(`tv?api_key=${this.state.apiKey}&query=${this.state.inputValue}&language=pl`)
+    axios
+      .get(`tv?api_key=${apiKey}&query=${this.state.inputValue}&language=pl`)
       .then(response => {
         console.log(response.data);
-
         this.setState({
           data: response.data,
           getData: true
-        })
+        });
       })
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   render() {
-    let data;
-
+    let results;
     if (this.state.getData === true) {
-      data = this.state.data.results.map(item => {
+      results = this.state.data.results.map(item => {
         return (
-          <div key={item.id}>
-            <p>Nazwa: {item.name}</p>
-            <p>Opis: {item.overview}</p>
-            <img src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt="Brak obrazka" />
-            <hr />
-          </div>
-        )
+          <Results
+            name={item.name}
+            image={item.poster_path}
+            description={item.overview}
+            key={item.id}
+          />
+        );
       });
     }
 
     return (
       <>
-        <form onSubmit={this.sendHandler}>
-          <input type="text" onChange={this.changeHandler} />
-          <input type="submit" />
-        </form>
-        {data}
+        <Form onSubmit={this.sendHandler}>
+          <Input
+            type="text"
+            onChange={this.changeHandler}
+            placeholder="Wpisz nazwe filmu lub serialu.."
+          />
+          <Button type="submit">Zapytaj</Button>
+        </Form>
+        {results}
       </>
-    )
+    );
   }
-};
+}
 
 export default SearchMovies;

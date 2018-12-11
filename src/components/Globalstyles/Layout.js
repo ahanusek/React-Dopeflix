@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #21273D;
   }
   
-  &, &::before, &::after{
+  ::before, ::after{
     box-sizing: border-box;
   }
 `;
