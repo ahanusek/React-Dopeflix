@@ -39,7 +39,7 @@ class SearchMovies extends Component {
 
   render() {
     let results;
-    if (this.state.getData === true) {
+    if (this.state.getData) {
       results = this.state.data.results.map(item => {
         return (
           <Results
