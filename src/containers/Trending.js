@@ -35,14 +35,14 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 10000);
+    }, 1000);
   }
 
   render() {
     const { data, index, loaded } = this.state;
     return loaded ?
       <TrendingAll
-        movieName={data[index].title}
+        movieName={data[index].original_title}
         image={data[index].poster_path}
         description={data[index].overview}
         ratingCount={data[index].vote_count}

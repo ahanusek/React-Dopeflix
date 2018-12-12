@@ -1,25 +1,29 @@
 import React from "react";
 import { Img } from "../Globalstyles/Img";
 import { Button } from "../Globalstyles/Button";
-import { TrendingContainer, TrendingTitle } from "./Trending-All-styles";
+import { TrendingContainer, TrendingTitle, Description, TextContent, Wrapper, Rating } from "./Trending-All-styles";
 
 const TrendingAll = (props) => {
 
   return (
     <>
-      <TrendingTitle>Polecane teraz:</TrendingTitle>
-      <TrendingContainer>
-        <div>
-          <Img src={'https://image.tmdb.org/t/p/w500' + props.image} />
-        </div>
-        <div>
-          <p>Tytuł: {props.movieName}</p>
-          <p>Opis: {props.description}</p>
-          <p>Liczba glosów: {props.ratingCount}</p>
-          <p>Ocena: {props.rating}</p>
-          <Button>Zobacz więcej</Button>
-        </div>
-      </TrendingContainer>
+      <div>
+        <TrendingTitle>Popularne:</TrendingTitle>
+        <TrendingContainer>
+          <div>
+            <Img src={'https://image.tmdb.org/t/p/w500' + props.image} />
+          </div>
+          <TextContent>
+            <p>Tytuł: {props.movieName}</p>
+            <Description>Opis: {props.description}</Description>
+            <p>Liczba glosów: {props.ratingCount}</p>
+            <Wrapper>
+              <Button>Zobacz więcej</Button>
+              <Rating>Ocena: {props.rating}</Rating>
+            </Wrapper>
+          </TextContent>
+        </TrendingContainer>
+      </div>
     </>
   )
 };
