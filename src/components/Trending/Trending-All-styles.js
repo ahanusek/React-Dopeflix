@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
+export const Test = styled.div`
+`;
+
 export const TrendingContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
-  @media screen and (min-width: 768px){
+
+  @media screen and (min-width: 1024px){
     flex-direction: row;
   }
 `;
 
 export const TrendingTitle = styled.h2`
-  width: fit-content ;
+  /* width: fit-content; */
   font-size: 1.8em;
   font-weight: 500;
   border-bottom: 5px solid #F2588A;
@@ -23,9 +27,10 @@ export const Description = styled.p`
 export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: flex-start;
-  @media screen and (min-width: 768px){
+
+  @media screen and (min-width: 1024px){
     margin-left: 20px;
   }
 `;

@@ -1,13 +1,13 @@
 import React from "react";
 import { Img } from "../Globalstyles/Img";
 import { Button } from "../Globalstyles/Button";
-import { TrendingContainer, TrendingTitle, Description, TextContent, Wrapper, Rating } from "./Trending-All-styles";
+import { TrendingContainer, TrendingTitle, Description, TextContent, Wrapper, Rating, Test } from "./Trending-All-styles";
 
 const TrendingAll = (props) => {
 
   return (
     <>
-      <div>
+      <Test>
         <TrendingTitle>Popularne:</TrendingTitle>
         <TrendingContainer>
           <div>
@@ -16,6 +16,7 @@ const TrendingAll = (props) => {
           <TextContent>
             <p>Tytuł: {props.movieName}</p>
             <Description>Opis: {props.description}</Description>
+            <p>Premiera: {props.releaseDate}</p>
             <p>Liczba glosów: {props.ratingCount}</p>
             <Wrapper>
               <Button>Zobacz więcej</Button>
@@ -23,7 +24,7 @@ const TrendingAll = (props) => {
             </Wrapper>
           </TextContent>
         </TrendingContainer>
-      </div>
+      </Test>
     </>
   )
 };
