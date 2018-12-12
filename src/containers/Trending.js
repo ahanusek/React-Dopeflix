@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-
-const MovieComponent = ({ movieName }) => {
-  return <p>{movieName}</p>
-}
+import TrendingAll from "../components/Trending/Trending-All";
 
 class Trending extends Component {
   state = {
@@ -19,7 +15,7 @@ class Trending extends Component {
     axios
       .get(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}&language=pl`)
       .then(response => {
-        console.log(response);
+        console.log(response.data.results);
         this.setState({
           data: response.data.results,
           loaded: true
@@ -39,16 +35,24 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 300);
+    }, 10000);
   }
 
   render() {
     const { data, index, loaded } = this.state;
-
-    return loaded ? <MovieComponent movieName={data[index].title} /> : null;
+    return loaded ?
+      <TrendingAll
+        movieName={data[index].title}
+        image={data[index].poster_path}
+        description={data[index].overview}
+        ratingCount={data[index].vote_count}
+        rating={data[index].vote_average}
+        picture={data[index].backdrop_path}
+        releaseDate={data[index].release_date}
+        id={data[index].id}
+      />
+      : null;
   }
 }
-
-
 
 export default Trending;

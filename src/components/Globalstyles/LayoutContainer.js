@@ -5,8 +5,8 @@ export const LayoutContainer = styled.div`
   width: 80%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
-  text-align: center;
+  /* text-align: center; */
   margin: auto;
 `;

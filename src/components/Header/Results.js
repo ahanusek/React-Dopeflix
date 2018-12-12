@@ -7,7 +7,7 @@ const Item = props => {
       <p>{props.name}</p>
       <Img src={'https://image.tmdb.org/t/p/w500' + props.image} alt="Brak obrazka" />
       <p>{props.description}</p>
-      </>
+    </>
   )
 };
 
