@@ -1,5 +1,5 @@
 .nav-container{
-  min-height: 50px;
+  max-height: 50px;
   line-height: 50px;
   background-color: #f2588a;
 
@@ -10,10 +10,8 @@
 }
 
 nav{
-  // position: relative;
   width: 90%;
   margin: auto;
-  // z-index: 999;
 }
 
 .nav-bar{
@@ -35,7 +33,6 @@ nav{
 
 .nav-wrapper{
   display: flex;
-  // align-items: center;
   justify-content: space-between;
 }
 

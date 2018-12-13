@@ -17,6 +17,7 @@ const Navbar = () => {
           <li>Filmy</li>
           <li>Seriale</li>
         </ul>
+
       </nav>
     </div>
   )
