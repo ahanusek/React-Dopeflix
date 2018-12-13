@@ -10,7 +10,6 @@
 }
 
 nav{
-  // position: relative;
   width: 90%;
   margin: auto;
 }
@@ -46,7 +45,7 @@ nav{
 
 .nav-search{
   position: relative;
-  width: 150px;
+  width: 200px;
   outline: 0;
   border: 0;
   border-radius: 20px;
@@ -60,7 +59,7 @@ nav{
   }
 
   @media screen and (min-width: 375px){
-    width: 200px;
+    width: 250px;
   }
 
   @media screen and (min-width: 768px){

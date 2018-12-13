@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import SearchOutput from "../../components/Header/Navbar/Search-output";
@@ -29,6 +29,13 @@ class Search extends Component {
       .catch(error => {
         console.log(error);
       });
+
+
+    if (this.state.inputValue === "") {
+      this.setState({
+        inputValue: "adadadadad",
+      })
+    }
   }
 
   changeHandler = (e) => {
@@ -42,7 +49,11 @@ class Search extends Component {
     if (this.state.getData) {
       searchOutput = this.state.data.results.map(item => {
         return (
-            <SearchOutput key={item.id} name={item.name}/>
+          <SearchOutput
+            key={item.id}
+            id={item.id}
+            name={item.name}
+          />
         );
       });
     }
@@ -50,8 +61,14 @@ class Search extends Component {
     return (
       <>
         <form onSubmit={this.sendHandler}>
-          <input className="nav-search" type="text" placeholder="Search" onChange={this.changeHandler} />
+
+          <input
+            className="nav-search"
+            type="text"
+            placeholder="Search"
+            onChange={this.changeHandler} />
           {searchOutput}
+
         </form>
       </>
     )
