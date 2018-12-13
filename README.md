@@ -4,7 +4,7 @@ All series and movies in one place!
 ## Technologies that I use:
 - React
 - Axios
-- styled-component
+- SCSS
 - Firebase (Not atm)
 
 ## Setup:
