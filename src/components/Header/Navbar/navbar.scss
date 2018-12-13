@@ -1,8 +1,8 @@
 .nav-container{
   max-height: 50px;
   line-height: 50px;
-  background-color: #f2588a;
-
+  background-color: #21273D;
+  
   @media screen and (min-width: 1024px){
     min-height: 60px;
     line-height: 60px;
@@ -12,6 +12,10 @@
 nav{
   width: 90%;
   margin: auto;
+
+  @media screen and (min-width: 1024px){
+    width: 80%;
+  }
 }
 
 .nav-bar{
@@ -35,7 +39,7 @@ nav{
 
 .nav-bar-open{
   display: block;
-  background-color: #f2588a;
+  background-color: #21273D;
 }
 
 .nav-wrapper{
@@ -81,7 +85,7 @@ nav{
   line-height: 50px;
 
   @media screen and (min-width: 1024px){
-    font-size: 25px;
+    font-size: 21px;
     cursor: pointer;
     line-height: 60px;
   }

@@ -1,0 +1,58 @@
+.trending{
+  height: calc(100vh - 50px);
+  background-size: cover;
+  background-position: 50% 0;
+
+  @media screen and (min-width: 1024px){
+    height: calc(100vh - 60px);
+  }
+}
+
+.trending-bg{
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.712);
+}
+
+.trending-container{
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.movie-title{
+  width: fit-content;
+  font-weight: 700;
+  font-size: 33px;
+  border-bottom: 5px solid #f2588a;
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.movie-description{
+  width: 100%;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 25px;
+
+  @media screen and (min-width: 1024px){
+    width: 60%;
+    font-size: 22px;
+  }
+}
+
+.trending-button{
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-text{
+  font-weight: 600;
+  font-size: 16px;
+
+  span{
+    font-weight: 400;
+  }
+}

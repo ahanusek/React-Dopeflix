@@ -10,3 +10,23 @@ body{
   color: #fff;
   background-color: #21273D;
 }
+
+.button{
+  width: 150px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 15px;
+  // border: 3px solid #;
+  border: 0;
+  margin: 10px 0;
+  color: #fff;
+  background-color: rgb(43, 170, 96);
+  
+  &:last-child{
+    margin-left: 10px;
+  }
+}
+
+.button-list{
+  background-color: rgb(221, 34, 34);
+}
