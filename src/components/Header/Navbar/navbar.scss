@@ -10,20 +10,28 @@
 }
 
 nav{
+  // position: relative;
   width: 90%;
   margin: auto;
 }
 
 .nav-bar{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50px;
   display: none;
   text-align: center;
   list-style: none;
   padding: 0;
-
+  margin: 0;
   li{
     padding: 5px 0;
   }
   
+  @media screen and (min-width: 1024px){
+    top: 60px;
+  }
 }
 
 .nav-bar-open{
