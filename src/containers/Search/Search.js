@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import SearchOutput from "../../components/Header/Navbar/Search-output";
+import SearchOutput from "../../components/Header/Navbar/SearchOutput/SearchOutput";
 
 class Search extends Component {
 
@@ -13,7 +12,7 @@ class Search extends Component {
 
   sendHandler = (e) => {
     e.preventDefault();
-    console.log("Zapytanie:")
+    console.log("Zapytanie searchbar:")
     const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
     axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
 
@@ -61,7 +60,7 @@ class Search extends Component {
 
     return (
       <>
-        <form onSubmit={this.sendHandler}>
+        <form className="search-form" onSubmit={this.sendHandler}>
 
           <input
             className="nav-search"

@@ -9,14 +9,15 @@ const Navbar = () => {
         <div className="nav-wrapper">
           <p className="nav-brand-logo">Dopeflix</p>
           <Search />
-          <i className="hamburger fas fa-bars"></i>
+          <i className="icon far fa-user-circle"></i>
+          {/* <i className="hamburger fas fa-bars"></i> */}
         </div>
 
-        <ul className="nav-bar">
+        {/* <ul className="nav-bar">
           <li>Aktorzy</li>
           <li>Filmy</li>
           <li>Seriale</li>
-        </ul>
+        </ul> */}
 
       </nav>
     </div>

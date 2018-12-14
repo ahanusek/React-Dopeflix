@@ -4,7 +4,9 @@ import Trending from "../../containers/Trending/Trending";
 
 const Main = () => {
   return (
-    <Trending />
+    <main>
+      <Trending />
+    </main>
   )
 }
 

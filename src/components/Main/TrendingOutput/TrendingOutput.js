@@ -1,5 +1,5 @@
 import React from "react";
-import "./main.scss"
+import "./trendingOutput.scss"
 
 const TrendingOutput = (props) => {
 
