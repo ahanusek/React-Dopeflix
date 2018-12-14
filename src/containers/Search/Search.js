@@ -18,9 +18,9 @@ class Search extends Component {
     axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
 
     axios
-      .get(`tv?api_key=${apiKey}&query=${this.state.inputValue}&language=pl`)
+      .get(`multi?api_key=${apiKey}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
-        console.log(response.data);
+        console.log(response.data.results);
         this.setState({
           data: response.data,
           getData: true
@@ -33,7 +33,7 @@ class Search extends Component {
 
     if (this.state.inputValue === "") {
       this.setState({
-        inputValue: "adadadadad",
+        inputValue: "adadadadad", //???
       })
     }
   }
@@ -53,6 +53,7 @@ class Search extends Component {
             key={item.id}
             id={item.id}
             name={item.name}
+            title={item.title}
           />
         );
       });

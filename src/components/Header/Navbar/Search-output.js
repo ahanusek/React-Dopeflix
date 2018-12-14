@@ -9,7 +9,7 @@ const SearchOutput = (props) => {
 
   return (
     <>
-      <span onClick={() => { click(props.id) }} className="item">{props.name}</span>
+      <span onClick={() => { click(props.id) }} className="item">{props.name} {props.title}</span>
     </>
   )
 }
