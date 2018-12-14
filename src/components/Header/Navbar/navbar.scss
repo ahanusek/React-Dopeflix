@@ -1,6 +1,7 @@
 .nav-container{
   max-height: 50px;
   line-height: 50px;
+  box-shadow: 1px 1px 45px 0px rgba(0,0,0,0.75);
   background-color: #21273D;
   
   @media screen and (min-width: 1024px){
@@ -26,7 +27,19 @@ nav{
 
 .nav-brand-logo{
   font-size: 20px;
+  font-weight: 500;
   margin: 0;
+
+  a{
+    text-decoration: none;
+    transition: all ease-in 0.2s;
+    color: #fff;
+
+    &:hover{
+      cursor: pointer;
+      color: #f2588a;
+    }
+  }
 }
 
 ul{

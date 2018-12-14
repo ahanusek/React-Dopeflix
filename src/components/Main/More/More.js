@@ -1,9 +1,10 @@
 import React from "react";
 
-const More = () => {
+const More = (props) => {
+  console.log(props);
   return (
     <section>
-      <h1>More page</h1>
+      <p>/more</p>
     </section>
   )
 }

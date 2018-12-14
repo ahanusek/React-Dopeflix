@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Search from "../../../containers/Search/Search";
 import "./navbar.scss";
 
@@ -7,7 +8,9 @@ const Navbar = () => {
     <div className="nav-container">
       <nav>
         <div className="nav-wrapper">
-          <p className="nav-brand-logo">Dopeflix</p>
+          <p className="nav-brand-logo">
+            <Link to="/">Dopeflix</Link>
+          </p>
           <Search />
           <ul>
             <li>
