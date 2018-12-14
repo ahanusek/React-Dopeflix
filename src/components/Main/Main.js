@@ -1,15 +1,13 @@
 import React from "react";
-import { LayoutContainer } from "../Globalstyles/LayoutContainer";
-import Trending from "../../containers/Trending";
+import "./main.scss";
+import Trending from "../../containers/Trending/Trending";
 
 const Main = () => {
   return (
     <main>
-      <LayoutContainer>
-        <Trending />
-      </LayoutContainer>
+      <Trending />
     </main>
-  );
-};
+  )
+}
 
 export default Main;

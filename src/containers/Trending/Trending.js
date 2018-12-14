@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import TrendingAll from "../components/Trending/Trending-All";
+import TrendingOutput from "../../components/Main/TrendingOutput/TrendingOutput";
 
 class Trending extends Component {
   state = {
@@ -10,12 +10,12 @@ class Trending extends Component {
   };
 
   componentDidMount() {
-    console.log("Component Mount");
+    // console.log("Component Mount");
     const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
     axios
       .get(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}&language=pl`)
       .then(response => {
-        console.log(response.data.results);
+        // console.log(response.data.results);
         this.setState({
           data: response.data.results,
           loaded: true
@@ -35,13 +35,14 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 1000);
+    }, 10000);
   }
 
   render() {
     const { data, index, loaded } = this.state;
+
     return loaded ?
-      <TrendingAll
+      <TrendingOutput
         movieName={data[index].original_title}
         image={data[index].poster_path}
         description={data[index].overview}

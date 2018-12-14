@@ -1,0 +1,14 @@
+.item{
+  position: relative;
+  display: block;
+  z-index: 999;
+  line-height: 50px;
+  font-weight: 500;
+  box-shadow: 0 3px 3px 0px rgba(0,0,0,0.75);
+  background-color: rgba(33, 39, 61, 0.7);
+}
+
+.search-form{
+  max-height: 200px;
+  overflow-x: hidden;
+}
