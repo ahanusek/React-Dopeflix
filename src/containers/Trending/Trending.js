@@ -35,7 +35,7 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 512000);
+    }, 10000);
   }
 
   render() {

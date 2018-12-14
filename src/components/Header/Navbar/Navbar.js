@@ -9,16 +9,13 @@ const Navbar = () => {
         <div className="nav-wrapper">
           <p className="nav-brand-logo">Dopeflix</p>
           <Search />
-          <i className="icon far fa-user-circle"></i>
-          {/* <i className="hamburger fas fa-bars"></i> */}
+          <ul>
+            <li>
+              <i className="icon far fa-user-circle" title="Profil"></i>
+            </li>
+            {/* <li><i class="icon fas fa-sign-in-alt" title="Zaloguj/Zarejestruj"></i></li> */}
+          </ul>
         </div>
-
-        {/* <ul className="nav-bar">
-          <li>Aktorzy</li>
-          <li>Filmy</li>
-          <li>Seriale</li>
-        </ul> */}
-
       </nav>
     </div>
   )

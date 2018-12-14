@@ -18,33 +18,43 @@ nav{
   }
 }
 
-.nav-bar{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 50px;
-  display: none;
-  text-align: center;
+.nav-wrapper{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-brand-logo{
+  font-size: 20px;
+  margin: 0;
+}
+
+ul{
   list-style: none;
   padding: 0;
   margin: 0;
+
   li{
-    padding: 5px 0;
-  }
-  
-  @media screen and (min-width: 1024px){
-    top: 60px;
-  }
-}
 
-.nav-bar-open{
-  display: block;
-  background-color: #21273D;
-}
+    .icon{
+      position: absolute;
+      right: 0;
+      font-size: 27px;
+      line-height: 50px;
+      cursor: pointer;
+      transition: all ease-in 0.2s;
 
-.nav-wrapper{
-  display: flex;
-  justify-content: space-between;
+      &:hover{
+        transition: all ease-in 0.2s;
+        color: #f2588a;
+      }
+
+      @media screen and (min-width: 1024px){
+        line-height: 60px;
+      }
+    }
+
+  }
 }
 
 .nav-search{
@@ -72,21 +82,5 @@ nav{
 
   @media screen and (min-width: 1024px){
     width: 800px;
-  }
-}
-
-.nav-brand-logo{
-  font-size: 20px;
-  margin: 0;
-}
-
-.hamburger{
-  font-size: 20px;
-  line-height: 50px;
-
-  @media screen and (min-width: 1024px){
-    font-size: 21px;
-    cursor: pointer;
-    line-height: 60px;
   }
 }
