@@ -15,31 +15,49 @@
 
 .trending-container{
   height: 100%;
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
+
+  @media screen and (min-width: 1024px){
+    width: 80%;
+  }
 }
 
 .movie-title{
   width: fit-content;
   font-weight: 700;
-  font-size: 33px;
+  font-size: 22px;
   border-bottom: 5px solid #f2588a;
   margin-top: 0;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 375px){
+    font-size: 33px;
+    margin-bottom: 22px;
+  }
 }
 
 .movie-description{
   width: 100%;
+  max-height: 140px;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 25px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  @media screen and (min-width: 375px){
+    font-size: 18px; 
+  }
 
   @media screen and (min-width: 1024px){
     width: 60%;
-    font-size: 22px;
+    max-height: 100%;
+    font-size: 19px;
+    overflow: hidden;
   }
 }
 

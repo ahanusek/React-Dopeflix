@@ -1,5 +1,24 @@
 *, *::after, *::before{
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 40px;
+  background-color: rgba(0,0,0, 0.4); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+  background-color: #f2588a;
 }
 
 body{
@@ -13,17 +32,29 @@ body{
 
 .button{
   width: 150px;
-  height: 40px;
-  font-weight: 600;
-  font-size: 15px;
-  // border: 3px solid #;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
   border: 0;
+  cursor: pointer;
   margin: 10px 0;
+  transition: all ease-in 0.25s;
   color: #fff;
   background-color: rgb(43, 170, 96);
   
   &:last-child{
     margin-left: 10px;
+  }
+
+  &:hover{
+    transform: scale(0.95);
+    transition: all ease-in 0.25s;
+  }
+
+  @media screen and (min-width: 375px){
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
   }
 }
 
