@@ -3,9 +3,9 @@ All series and movies in one place!
 
 ## Technologies that I use:
 - React
+- React Router
 - Axios
 - SCSS
-- Firebase (Not atm)
 
 ## Setup:
 
