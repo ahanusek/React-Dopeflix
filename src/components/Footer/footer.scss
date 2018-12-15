@@ -6,13 +6,15 @@ footer{
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: auto;
 
   @media screen and (min-width: 1024px){
     width: 80%;
+    flex-direction: row;
     justify-content: space-between;
   }
 
