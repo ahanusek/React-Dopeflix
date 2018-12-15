@@ -1,0 +1,10 @@
+.more{
+  min-height: calc(100vh - 50px);
+  width: 90%;
+  margin: auto;
+  
+  @media screen and (min-width: 1024px){
+    min-height: calc(100vh - 60px);
+    width: 80%;
+  }
+}

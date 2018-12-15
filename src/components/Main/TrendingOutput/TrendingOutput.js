@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./trendingOutput.scss"
 
 const TrendingOutput = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="trending"
       style={{
@@ -20,10 +20,13 @@ const TrendingOutput = (props) => {
           <p className="movie-text">Średnia: <span>{props.rating}</span></p>
           <div className="trending-button">
             <button className="button">
-              <Link to={{
+              {/* <Link to={{
                 pathname: "/more",
-                hash: `${props.id}`
-              }}>Zobacz więcej</Link>
+                hash: `${props.id}` //<-- id filmu
+              }}>Zobacz więcej</Link> */}
+              <Link to={'/more/' + props.id}>
+                Zobacz więcej
+              </Link>
             </button>
             <button className="button button-list">Dodaj do listy</button>
           </div>
