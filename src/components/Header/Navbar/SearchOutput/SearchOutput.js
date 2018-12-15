@@ -2,7 +2,6 @@ import React from "react";
 import "./searchOutput.scss";
 
 const SearchOutput = (props) => {
-
   const click = (id) => {
     alert(id)
   }

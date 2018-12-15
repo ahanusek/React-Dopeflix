@@ -12,6 +12,13 @@ class Search extends Component {
 
   sendHandler = (e) => {
     e.preventDefault();
+  }
+
+  changeHandler = (e) => {
+    this.setState({
+      inputValue: e.target.value
+    })
+
     console.log("Zapytanie searchbar:")
     const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
     axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
@@ -29,18 +36,13 @@ class Search extends Component {
         console.log(error);
       });
 
-
-    if (this.state.inputValue === "") {
-      this.setState({
-        inputValue: "adadadadad", //???
-      })
-    }
-  }
-
-  changeHandler = (e) => {
-    this.setState({
-      inputValue: e.target.value
-    })
+    setTimeout(() => {
+      if ((this.state.inputValue.length === 0) && (this.state.getData === true)) {
+        this.setState({
+          getData: false
+        })
+      }
+    }, 1000)
   }
 
   render() {
@@ -61,14 +63,12 @@ class Search extends Component {
     return (
       <>
         <form className="search-form" onSubmit={this.sendHandler}>
-
           <input
             className="nav-search"
             type="text"
             placeholder="Search"
             onChange={this.changeHandler} />
           {searchOutput}
-
         </form>
       </>
     )
