@@ -7,6 +7,7 @@ class Trending extends Component {
     data: [],
     loaded: false,
     index: 0,
+
   };
 
   componentDidMount() {
