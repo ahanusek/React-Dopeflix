@@ -1,6 +1,55 @@
 footer{
+  background-color: rgba(0,0,0, 0.7);
+}
+
+.footer-container{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  @media screen and (min-width: 1024px){
+    width: 80%;
+    justify-content: space-between;
+  }
+
   p{
-    margin: 0;
-    padding: 0;
+    font-weight: 300;
+    a{
+      text-decoration: none;
+      border-bottom: 5px solid #f2588a;
+      color: #fff;
+    }
+  }
+}
+
+.footer-brand-logo{
+  font-size: 40px;
+  font-weight: 700;
+
+
+  a{
+    text-decoration: none;
+    transition: all ease-in 0.2s;
+    color: #f2588a;
+
+    &:hover{
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+}
+
+.tmdb-logo{
+  width: 200px;
+}
+
+.footer-credits{
+  p{
+    font-size: 14px;
+    font-weight: 800;
   }
 }
