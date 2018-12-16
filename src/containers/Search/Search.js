@@ -19,14 +19,14 @@ class Search extends Component {
       inputValue: e.target.value
     })
 
-    console.log("Zapytanie searchbar:")
+    // console.log("Zapytanie searchbar:")
     const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
     axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
 
     axios
       .get(`multi?api_key=${apiKey}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
-        console.log(response.data.results);
+        // console.log(response.data.results);
         this.setState({
           data: response.data,
           getData: true
