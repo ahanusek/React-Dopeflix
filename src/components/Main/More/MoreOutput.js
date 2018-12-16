@@ -30,7 +30,6 @@ const More = (props) => {
       <p>Popularność: {props.popularity}</p>
       <p>Średnia ocena: {props.voteAverage}</p>
       <p>Liczba głosów: {props.voteCount}</p>
-      {/* <p>{props.}</p> */}
     </section>
   )
 }

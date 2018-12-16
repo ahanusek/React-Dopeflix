@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios, { key } from "../../axios";
 import MoreOutput from "../../components/Main/More/MoreOutput";
 
 class More extends Component {
@@ -10,8 +10,7 @@ class More extends Component {
   }
 
   componentDidMount() {
-    const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
-    axios.get(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=${apiKey}&language=pl`)
+    axios.get(`movie/${this.state.id}?api_key=${key}&language=pl`)
       .then(response => {
         this.setState({
           data: response.data,
@@ -25,8 +24,7 @@ class More extends Component {
 
   componentDidUpdate() {
     if (this.state.id !== this.props.match.params.id) {
-      const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
-      axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${apiKey}&language=pl`)
+      axios.get(`movie/${this.props.match.params.id}?api_key=${key}&language=pl`)
         .then(response => {
           this.setState({
             data: response.data,

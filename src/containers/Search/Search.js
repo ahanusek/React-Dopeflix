@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios, { key } from '../../axios';
 import SearchOutput from "../../components/Header/Navbar/SearchOutput/SearchOutput";
 
 class Search extends Component {
@@ -19,11 +19,8 @@ class Search extends Component {
       inputValue: e.target.value
     })
 
-    const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
-    axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
-
     axios
-      .get(`movie?api_key=${apiKey}&language=pl&query=${this.state.inputValue}`)
+      .get(`search/movie?api_key=${key}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
         this.setState({
           data: response.data,
