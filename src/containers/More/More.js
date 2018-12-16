@@ -65,7 +65,9 @@ class More extends Component {
     }
     else {
       return (
-        <p>Loading..</p>
+        <div className="loader-container">
+          <div class="loader">Loading...</div>
+        </div>
       )
     }
 
