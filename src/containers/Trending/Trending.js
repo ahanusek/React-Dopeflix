@@ -34,7 +34,7 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 1000);
+    }, 5000);
   }
 
   render() {
@@ -51,7 +51,9 @@ class Trending extends Component {
         releaseDate={data[index].release_date}
         id={data[index].id}
       />
-      : null;
+      : <div className="loader-container">
+        <div className="loader">Loading...</div>
+      </div>;
   }
 }
 
