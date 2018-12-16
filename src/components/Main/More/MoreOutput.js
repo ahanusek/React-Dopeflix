@@ -17,7 +17,7 @@ const More = (props) => {
       <p>Tytuł: {props.title}</p>
       <span>Tytuł oryginalny: {props.originalName}</span>
       <p>Opis: {props.description}</p>
-      <p>{props.cover}</p>
+      <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} />
       <p>Kategorie: {categories}</p>
       <p>
         <a href={props.homepage}>

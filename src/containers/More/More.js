@@ -13,6 +13,7 @@ class More extends Component {
     axios.get(`movie/${this.state.id}?api_key=${key}&language=pl`)
       .then(response => {
         this.setState({
+          id: this.props.match.params.id,
           data: response.data,
           dataLoaded: true
         })
@@ -23,10 +24,12 @@ class More extends Component {
   }
 
   componentDidUpdate() {
+    console.log('update', this.props.match.params.id)
     if (this.state.id !== this.props.match.params.id) {
       axios.get(`movie/${this.props.match.params.id}?api_key=${key}&language=pl`)
         .then(response => {
           this.setState({
+            id: this.props.match.params.id,
             data: response.data,
             dataLoaded: true
           })
@@ -67,8 +70,6 @@ class More extends Component {
         </div>
       )
     }
-
-
   }
 }
 
