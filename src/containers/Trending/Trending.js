@@ -15,7 +15,6 @@ class Trending extends Component {
     axios
       .get(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}&language=pl`)
       .then(response => {
-        // console.log(response.data.results);
         this.setState({
           data: response.data.results,
           loaded: true
@@ -35,13 +34,13 @@ class Trending extends Component {
           index: 0
         })
       }
-    }, 10000);
+    }, 1000);
   }
 
   render() {
     const { data, index, loaded } = this.state;
-
     return loaded ?
+
       <TrendingOutput
         movieName={data[index].original_title}
         image={data[index].poster_path}

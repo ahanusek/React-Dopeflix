@@ -19,14 +19,12 @@ class Search extends Component {
       inputValue: e.target.value
     })
 
-    // console.log("Zapytanie searchbar:")
     const apiKey = "a70dbfe19b800809dfdd3e89e8532c9e";
     axios.defaults.baseURL = "https://api.themoviedb.org/3/search/";
 
     axios
-      .get(`multi?api_key=${apiKey}&language=pl&query=${this.state.inputValue}`)
+      .get(`movie?api_key=${apiKey}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
-        // console.log(response.data.results);
         this.setState({
           data: response.data,
           getData: true
@@ -66,9 +64,11 @@ class Search extends Component {
           <input
             className="nav-search"
             type="text"
-            placeholder="Search"
+            placeholder="Wyszukaj film.."
             onChange={this.changeHandler} />
-          {searchOutput}
+          <div className="search-results-container">
+            {searchOutput}
+          </div>
         </form>
       </>
     )

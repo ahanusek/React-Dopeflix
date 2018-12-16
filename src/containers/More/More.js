@@ -40,7 +40,6 @@ class More extends Component {
   }
 
   render() {
-
     if (this.state.dataLoaded) {
       return (
         <MoreOutput
@@ -55,8 +54,8 @@ class More extends Component {
           originalLanguage={this.state.data.original_language}
           description={this.state.data.overview}
           productionCountry={this.state.data.production_countries}
-          releaseData={this.state.data.release_date}
-          status={this.state.data.release}
+          releaseDate={this.state.data.release_date}
+          status={this.state.data.status}
           voteAverage={this.state.data.vote_average}
           voteCount={this.state.data.vote_count}
           popularity={this.state.data.popularity}
@@ -66,7 +65,7 @@ class More extends Component {
     else {
       return (
         <div className="loader-container">
-          <div class="loader">Loading...</div>
+          <div className="loader">Loading...</div>
         </div>
       )
     }
