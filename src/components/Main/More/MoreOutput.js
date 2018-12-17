@@ -4,11 +4,11 @@ import "./moreOutput.scss";
 const More = (props) => {
 
   const categories = props.genres.map(item => {
-    return <span>{item.name} </span>
+    return <span key={item.name}>{item.name} </span>
   })
 
   const productionCountry = props.productionCountry.map(item => {
-    return <span>{item.name} </span>
+    return <span key={item.name}>{item.name} </span>
   })
 
   const trailer = props.trailer.map(item => {
@@ -21,10 +21,8 @@ const More = (props) => {
 
   return (
     <section className="more">
-      <div class="more-container">
-        <div className="more-cover">
-          <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} alt="Poster" />
-        </div>
+      <p className="more-section-info"><i className="fas fa-info"></i> Informacje ogólne..</p>
+      <div className="more-container">
 
         <div className="more-info-content">
           <p className="more-title">{props.title}</p>
@@ -38,9 +36,16 @@ const More = (props) => {
             <button>Oglądaj</button>
           </div>
         </div>
+
+        <div className="more-cover">
+          <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} alt="Poster" />
+        </div>
       </div>
+
+      <p className="more-section-info"><i className="fas fa-film"></i> Trailery..</p>
+
       <div className="more-trailer">
-        {/* {trailer} */}
+        {trailer}
       </div>
     </section>
   )
