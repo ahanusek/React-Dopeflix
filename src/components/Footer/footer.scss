@@ -1,8 +1,4 @@
 footer{
-  background-color: rgba(0,0,0, 0.7);
-}
-
-.footer-container{
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -16,10 +12,13 @@ footer{
     width: 80%;
     flex-direction: row;
     justify-content: space-between;
+    text-align: left;
   }
 
   p{
     font-weight: 300;
+    margin: 20px 0;
+
     a{
       text-decoration: none;
       border-bottom: 5px solid #f2588a;
@@ -28,30 +27,23 @@ footer{
   }
 }
 
-.footer-brand-logo{
+.footer-brandlogo{
   font-size: 40px;
   font-weight: 700;
-
+  margin: 10px 0;
 
   a{
     text-decoration: none;
     transition: all ease-in 0.2s;
-    color: #f2588a;
+    color: #fff;
 
     &:hover{
       cursor: pointer;
-      color: #fff;
+      color: #f2588a;
     }
   }
 }
 
 .tmdb-logo{
   width: 200px;
-}
-
-.footer-credits{
-  p{
-    font-size: 14px;
-    font-weight: 800;
-  }
 }
