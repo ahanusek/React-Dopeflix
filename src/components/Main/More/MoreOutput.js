@@ -31,9 +31,7 @@ const More = (props) => {
           <p>Premiera: {props.releaseDate}</p>
           <p className="more-description">{props.description}</p>
           <div>
-            <button>Ulubione</button>
-            <button>Udostępnij</button>
-            <button>Oglądaj</button>
+            <button><i class="far fa-list-alt"></i></button>
           </div>
         </div>
 
