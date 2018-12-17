@@ -1,42 +1,57 @@
 import React, { Component } from "react";
-import axios, { key } from "../../axios";
+import axios from "axios";
+import { URL, key } from "../../axios"
 import MoreOutput from "../../components/Main/More/MoreOutput";
 
 class More extends Component {
   state = {
     id: this.props.match.params.id,
     data: null,
+    vide: null,
     dataLoaded: false
   }
 
   componentDidMount() {
-    axios.get(`movie/${this.state.id}?api_key=${key}&language=pl`)
-      .then(response => {
+
+    axios.all([
+      axios.get(`${URL}movie/${this.state.id}?api_key=${key}&language=pl`),
+      axios.get(`${URL}movie/${this.state.id}/videos?api_key=${key}`)
+    ])
+      .then(axios.spread((firstResponse, secondResponse) => {
+        // Both requests are now complete
         this.setState({
           id: this.props.match.params.id,
-          data: response.data,
-          dataLoaded: true
+          data: firstResponse.data,
+          video: secondResponse.data,
+          dataLoaded: true,
         })
-      })
+      }))
       .catch(error => {
-        console.log(error);
-      })
+        console.log(error)
+      });
+
   }
 
   componentDidUpdate() {
+
     console.log('update', this.props.match.params.id)
     if (this.state.id !== this.props.match.params.id) {
-      axios.get(`movie/${this.props.match.params.id}?api_key=${key}&language=pl`)
-        .then(response => {
+      axios.all([
+        axios.get(`${URL}movie/${this.props.match.params.id}?api_key=${key}&language=pl`),
+        axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`)
+      ])
+        .then(axios.spread((firstResponse, secondResponse) => {
+          // Both requests are now complete
           this.setState({
             id: this.props.match.params.id,
-            data: response.data,
-            dataLoaded: true
+            data: firstResponse.data,
+            video: secondResponse.data,
+            dataLoaded: true,
           })
-        })
+        }))
         .catch(error => {
-          console.log(error.code);
-        })
+          console.log(error)
+        });
     }
   }
 
@@ -60,6 +75,7 @@ class More extends Component {
           voteAverage={this.state.data.vote_average}
           voteCount={this.state.data.vote_count}
           popularity={this.state.data.popularity}
+          trailer={this.state.video.results}
         />
       )
     }
