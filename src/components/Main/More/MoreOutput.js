@@ -4,11 +4,11 @@ import "./moreOutput.scss";
 const More = (props) => {
 
   const categories = props.genres.map(item => {
-    return item.name
+    return <span>{item.name} </span>
   })
 
   const productionCountry = props.productionCountry.map(item => {
-    return item.name
+    return <span>{item.name} </span>
   })
 
   const trailer = props.trailer.map(item => {
@@ -21,25 +21,27 @@ const More = (props) => {
 
   return (
     <section className="more">
-      <p>Id: {props.id}</p>
-      <p>Tytuł: {props.title}</p>
-      <span>Tytuł oryginalny: {props.originalName}</span>
-      <p>Opis: {props.description}</p>
-      <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} alt="test" />
-      <p>Kategorie: {categories}</p>
-      <p>
-        <a href={props.homepage}>
-          Strona Główna
-        </a>
-      </p>
-      <p>Produkcja: {productionCountry}</p>
-      <p>Premiera: {props.releaseDate}</p>
-      <p>Status: {props.status}</p>
-      <p>Popularność: {props.popularity}</p>
-      <p>Średnia ocena: {props.voteAverage}</p>
-      <p>Liczba głosów: {props.voteCount}</p>
+      <div class="more-container">
+        <div className="more-cover">
+          <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} alt="Poster" />
+        </div>
 
-      {trailer}
+        <div className="more-info-content">
+          <p className="more-title">{props.title}</p>
+          <p>Kategoria: {categories}</p>
+          <p>Produkcja: {productionCountry}</p>
+          <p>Premiera: {props.releaseDate}</p>
+          <p className="more-description">{props.description}</p>
+          <div>
+            <button>Ulubione</button>
+            <button>Udostępnij</button>
+            <button>Oglądaj</button>
+          </div>
+        </div>
+      </div>
+      <div className="more-trailer">
+        {/* {trailer} */}
+      </div>
     </section>
   )
 }
