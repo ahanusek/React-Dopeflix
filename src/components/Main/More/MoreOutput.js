@@ -12,7 +12,7 @@ const More = (props) => {
   })
 
   let linkTrailer;
-  if (props.trailer.key === undefined || null) {
+  if (props.trailer.length === 0) {
     linkTrailer = 'http://www.youtube.com';
   }
   else {
