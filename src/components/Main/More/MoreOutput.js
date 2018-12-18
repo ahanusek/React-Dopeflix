@@ -11,11 +11,21 @@ const More = (props) => {
     return <span key={item.name}>{item.name} </span>
   })
 
-  const trailer = props.trailer.map(item => {
+  const cast = props.cast.map(item => {
+    let link = item.profile_path;
+    if (item.profile_path === null) {
+      link = "https://catalogue.bticino.com/app/webroot/img/img_not_found_prod_it.jpg"
+    }
+    else {
+      link = `https://image.tmdb.org/t/p/w500${item.profile_path}`;
+    }
+
     return (
-      <iframe key={item.key} title="Trailer" width="500" height="360"
-        src={`http://www.youtube.com/embed/${item.key}`}
-        frameBorder="0" />
+      <div className="more-cast-card" key={item.name}>
+        <img src={link} alt="Caster" />
+        <p>{item.character}</p>
+        <p>{item.name}</p>
+      </div>
     )
   })
 
@@ -26,13 +36,10 @@ const More = (props) => {
 
         <div className="more-info-content">
           <p className="more-title">{props.title}</p>
-          <p>Kategoria: {categories}</p>
-          <p>Produkcja: {productionCountry}</p>
-          <p>Premiera: {props.releaseDate}</p>
+          <p className="more-text">Kategoria: {categories}</p>
+          <p className="more-text">Produkcja: {productionCountry}</p>
+          <p className="more-text">Premiera: <span>{props.releaseDate}</span></p>
           <p className="more-description">{props.description}</p>
-          <div>
-            <button><i class="far fa-list-alt"></i></button>
-          </div>
         </div>
 
         <div className="more-cover">
@@ -40,10 +47,16 @@ const More = (props) => {
         </div>
       </div>
 
-      <p className="more-section-info"><i className="fas fa-film"></i> Trailery..</p>
+      <p className="more-section-info"><i className="fas fa-users"></i>Obsada..</p>
+      <div className="more-cast">
+        {cast}
+      </div>
 
+      <p className="more-section-info"><i className="fas fa-film"></i> Trailer..</p>
       <div className="more-trailer">
-        {trailer}
+        <iframe title="Trailer" width="100%" height="500"
+          src={`http://www.youtube.com/embed/${props.trailer[0].key}`}
+          frameBorder="0" />
       </div>
     </section>
   )

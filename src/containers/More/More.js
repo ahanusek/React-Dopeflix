@@ -7,7 +7,8 @@ class More extends Component {
   state = {
     id: this.props.match.params.id,
     data: null,
-    vide: null,
+    video: null,
+    cast: null,
     dataLoaded: false
   }
 
@@ -15,21 +16,22 @@ class More extends Component {
 
     axios.all([
       axios.get(`${URL}movie/${this.state.id}?api_key=${key}&language=pl`),
-      axios.get(`${URL}movie/${this.state.id}/videos?api_key=${key}`)
+      axios.get(`${URL}movie/${this.state.id}/videos?api_key=${key}`),
+      axios.get(`${URL}movie/${this.state.id}/credits?api_key=${key}`)
     ])
-      .then(axios.spread((firstResponse, secondResponse) => {
+      .then(axios.spread((movie, trailer, cast) => {
         // Both requests are now complete
         this.setState({
           id: this.props.match.params.id,
-          data: firstResponse.data,
-          video: secondResponse.data,
+          data: movie.data,
+          video: trailer.data,
+          cast: cast.data.cast,
           dataLoaded: true,
         })
       }))
       .catch(error => {
         console.log(error)
       });
-
   }
 
   componentDidUpdate() {
@@ -38,14 +40,16 @@ class More extends Component {
     if (this.state.id !== this.props.match.params.id) {
       axios.all([
         axios.get(`${URL}movie/${this.props.match.params.id}?api_key=${key}&language=pl`),
-        axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`)
+        axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`),
+        axios.get(`${URL}movie/${this.state.id}/credits?api_key=${key}`)
       ])
-        .then(axios.spread((firstResponse, secondResponse) => {
+        .then(axios.spread((movie, trailer, cast) => {
           // Both requests are now complete
           this.setState({
             id: this.props.match.params.id,
-            data: firstResponse.data,
-            video: secondResponse.data,
+            data: movie.data,
+            video: trailer.data,
+            cast: cast.data.cast,
             dataLoaded: true,
           })
         }))
@@ -76,6 +80,7 @@ class More extends Component {
           voteCount={this.state.data.vote_count}
           popularity={this.state.data.popularity}
           trailer={this.state.video.results}
+          cast={this.state.cast}
         />
       )
     }
