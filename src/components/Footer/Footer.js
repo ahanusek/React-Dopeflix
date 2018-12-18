@@ -6,16 +6,18 @@ import "./footer.scss";
 const Footer = () => {
   return (
     <footer>
-      <div>
-        <p className="footer-brandlogo">
-          <Link to="/">Dopeflix</Link>
+      <div className="footer-container">
+        <div>
+          <p className="footer-brandlogo">
+            <Link to="/">Dopeflix</Link>
+          </p>
+          <p>
+            Wszystkie filmy i seriale <br /> w jednym miejscu!
         </p>
-        <p>
-          Wszystkie filmy i seriale <br /> w jednym miejscu!
-        </p>
-      </div>
-      <div>
-        <img className="tmdb-logo" src={tmdbLogo} alt="TheMobieDB Logo" />
+        </div>
+        <div>
+          <img className="tmdb-logo" src={tmdbLogo} alt="TheMobieDB Logo" />
+        </div>
       </div>
     </footer>
   )
