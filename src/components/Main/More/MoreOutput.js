@@ -13,8 +13,9 @@ const More = (props) => {
 
   const cast = props.cast.map(item => {
     let link = item.profile_path;
+
     if (item.profile_path === null) {
-      link = "https://catalogue.bticino.com/app/webroot/img/img_not_found_prod_it.jpg"
+      link = "https://i.imgur.com/UB2aBfj.png"
     }
     else {
       link = `https://image.tmdb.org/t/p/w500${item.profile_path}`;
@@ -23,8 +24,10 @@ const More = (props) => {
     return (
       <div className="more-cast-card" key={item.name}>
         <img src={link} alt="Caster" />
-        <p>{item.character}</p>
-        <p>{item.name}</p>
+        <div className="more-cast-card-info">
+          <p className="more-cast-card-info-character">{item.character}</p>
+          <p className="more-cast-card-info-actor">{item.name}</p>
+        </div>
       </div>
     )
   })

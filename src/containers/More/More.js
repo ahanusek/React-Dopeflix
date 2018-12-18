@@ -41,7 +41,7 @@ class More extends Component {
       axios.all([
         axios.get(`${URL}movie/${this.props.match.params.id}?api_key=${key}&language=pl`),
         axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`),
-        axios.get(`${URL}movie/${this.state.id}/credits?api_key=${key}`)
+        axios.get(`${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`)
       ])
         .then(axios.spread((movie, trailer, cast) => {
           // Both requests are now complete

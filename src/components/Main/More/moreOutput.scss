@@ -92,17 +92,19 @@
 }
 
 .more-cast{
+  max-height: 550px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .more-cast-card{
-  width: 138px;
-  height: 300px;
+  width: 150px;
+  min-height: 250px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
 
   p{
     font-size: 14px;
@@ -112,4 +114,19 @@
     height: 175px;
     width: 100%;
   }
+}
+
+.more-cast-card-info{
+  height: 100px;
+  padding: 10px;
+  background-color: rgba(0,0,0, 0.4);
+}
+
+.more-cast-card-info-actor{
+  font-weight: 800;
+  margin: 10px 0 0 0;
+}
+
+.more-cast-card-info-character{
+  margin: 0;
 }
