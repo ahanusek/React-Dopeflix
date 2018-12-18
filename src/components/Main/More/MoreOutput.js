@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./moreOutput.scss";
 
 const More = (props) => {
@@ -11,13 +12,6 @@ const More = (props) => {
     return <span key={item.name}>{item.name} </span>
   })
 
-  let linkTrailer;
-  if (props.trailer.length === 0) {
-    linkTrailer = 'http://www.youtube.com';
-  }
-  else {
-    linkTrailer = `http://www.youtube.com/embed/${props.trailer[0].key}`;
-  }
 
   const cast = props.cast.map(item => {
     let link = item.profile_path;
@@ -40,9 +34,32 @@ const More = (props) => {
     )
   })
 
+  let linkTrailer;
+  if (props.trailer.length === 0) {
+    linkTrailer = 'http://www.youtube.com';
+  }
+  else {
+    linkTrailer = `http://www.youtube.com/embed/${props.trailer[0].key}`;
+  }
+
+  const similar = props.similar.map(item => {
+    return (
+      <div className="more-similar-card" key={item.id}>
+        <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
+        <div className="more-similiar-card-info">
+          <p className="more-similar-title">{item.title}</p>
+          <p><i className="fas fa-star"></i> {item.vote_average}</p>
+          <button>
+            <Link to={'/more/' + item.id}>Zobacz więcej</Link>
+          </button>
+        </div>
+      </div>
+    )
+  })
+
   return (
     <section className="more">
-      <p className="more-section-info"><i className="fas fa-info"></i> Informacje ogólne..</p>
+      <p className="more-section-info"><i className="fas fa-info"></i> Informacje ogólne</p>
       <div className="more-container">
 
         <div className="more-info-content">
@@ -58,16 +75,21 @@ const More = (props) => {
         </div>
       </div>
 
-      <p className="more-section-info"><i className="fas fa-users"></i>Obsada..</p>
+      <p className="more-section-info"><i className="fas fa-users"></i>Obsada</p>
       <div className="more-cast">
         {cast}
       </div>
 
-      <p className="more-section-info"><i className="fas fa-film"></i> Trailer..</p>
+      <p className="more-section-info"><i className="fas fa-film"></i> Trailer</p>
       <div className="more-trailer">
         <iframe title="Trailer" width="100%" height="500"
           src={linkTrailer}
           frameBorder="0" />
+      </div>
+
+      <p className="more-section-info"><i className="fas fa-video"></i>Podobne filmy</p>
+      <div className="more-similar">
+        {similar}
       </div>
     </section>
   )

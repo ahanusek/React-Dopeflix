@@ -9,6 +9,7 @@ class More extends Component {
     data: null,
     video: null,
     cast: null,
+    similar: null,
     dataLoaded: false
   }
 
@@ -17,16 +18,18 @@ class More extends Component {
     axios.all([
       axios.get(`${URL}movie/${this.state.id}?api_key=${key}&language=pl`),
       axios.get(`${URL}movie/${this.state.id}/videos?api_key=${key}`),
-      axios.get(`${URL}movie/${this.state.id}/credits?api_key=${key}`)
+      axios.get(`${URL}movie/${this.state.id}/credits?api_key=${key}`),
+      axios.get(`${URL}movie/${this.state.id}/similar?api_key=${key}`)
     ])
-      .then(axios.spread((movie, trailer, cast) => {
+      .then(axios.spread((movie, trailer, cast, similar) => {
         // Both requests are now complete
         this.setState({
           id: this.props.match.params.id,
           data: movie.data,
           video: trailer.data,
           cast: cast.data.cast,
-          dataLoaded: true,
+          similar: similar.data,
+          dataLoaded: true
         })
       }))
       .catch(error => {
@@ -36,22 +39,23 @@ class More extends Component {
 
   componentDidUpdate() {
 
-    console.log('update', this.props.match.params.id)
+    console.log('UPDATE -> ID: ', this.props.match.params.id)
     if (this.state.id !== this.props.match.params.id) {
       axios.all([
         axios.get(`${URL}movie/${this.props.match.params.id}?api_key=${key}&language=pl`),
         axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`),
-        axios.get(`${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`)
+        axios.get(`${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`),
+        axios.get(`${URL}movie/${this.props.match.params.id}/similar?api_key=${key}`)
       ])
-        .then(axios.spread((movie, trailer, cast) => {
+        .then(axios.spread((movie, trailer, cast, similar) => {
           // Both requests are now complete
-          console.log(movie)
           this.setState({
             id: this.props.match.params.id,
             data: movie.data,
             video: trailer.data,
             cast: cast.data.cast,
-            dataLoaded: true,
+            similar: similar.data,
+            dataLoaded: true
           })
         }))
         .catch(error => {
@@ -82,6 +86,7 @@ class More extends Component {
           popularity={this.state.data.popularity}
           trailer={this.state.video.results}
           cast={this.state.cast}
+          similar={this.state.similar.results}
         />
       )
     }
