@@ -11,6 +11,14 @@ const More = (props) => {
     return <span key={item.name}>{item.name} </span>
   })
 
+  let linkTrailer;
+  if (props.trailer.key === undefined || null) {
+    linkTrailer = 'http://www.youtube.com';
+  }
+  else {
+    linkTrailer = `http://www.youtube.com/embed/${props.trailer[0].key}`;
+  }
+
   const cast = props.cast.map(item => {
     let link = item.profile_path;
 
@@ -58,7 +66,7 @@ const More = (props) => {
       <p className="more-section-info"><i className="fas fa-film"></i> Trailer..</p>
       <div className="more-trailer">
         <iframe title="Trailer" width="100%" height="500"
-          src={`http://www.youtube.com/embed/${props.trailer[0].key}`}
+          src={linkTrailer}
           frameBorder="0" />
       </div>
     </section>

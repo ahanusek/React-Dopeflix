@@ -45,6 +45,7 @@ class More extends Component {
       ])
         .then(axios.spread((movie, trailer, cast) => {
           // Both requests are now complete
+          console.log(movie)
           this.setState({
             id: this.props.match.params.id,
             data: movie.data,
