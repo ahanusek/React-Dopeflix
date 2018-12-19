@@ -10,8 +10,8 @@ const MovieInformations = ({title, description, categories, releaseDate, cover, 
       <div className="more-movie">
         <div className="more-info-content">
           <p className="more-title">{title}</p>
-          <p className="more-text">Kategoria: {categories}</p>
-          <p className="more-text">Produkcja: {productionCountry}</p>
+          <p className="more-text">Kategoria: <span>{categories}</span></p>
+          <p className="more-text">Produkcja: <span>{productionCountry}</span></p>
           <p className="more-text">
             Premiera: <span>{releaseDate}</span>
           </p>
