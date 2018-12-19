@@ -20,10 +20,6 @@ const TrendingOutput = (props) => {
           <p className="movie-text">Średnia: <span>{props.rating}</span></p>
           <div className="trending-button">
             <button className="button">
-              {/* <Link to={{
-                pathname: "/more",
-                hash: `${props.id}` //<-- id filmu
-              }}>Zobacz więcej</Link> */}
               <Link to={'/more/' + props.id}>
                 Zobacz więcej
               </Link>
@@ -34,6 +30,6 @@ const TrendingOutput = (props) => {
       </div>
     </div>
   )
-}
+};
 
 export default TrendingOutput;
