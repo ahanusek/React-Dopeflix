@@ -1,0 +1,55 @@
+.more-similar {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.more-similar-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin-right: 15px;
+  margin-bottom: 30px;
+
+  img {
+    height: 300px;
+    width: 200px;
+  }
+
+  button {
+    outline: 0;
+    border: 2px solid #f2588a;
+    padding: 8px;
+    transition: all ease-in 0.25s;
+    background-color: transparent;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transition: all ease-in 0.25s;
+      color: #fff;
+      background-color: #f2588a;
+    }
+  }
+
+  .fas {
+    color: yellow;
+  }
+}
+
+.more-similiar-card-info {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .more-similar-title {
+    min-height: 50px;
+    font-weight: 600;
+    margin: 0;
+    padding-top: 5px;
+  }
+}

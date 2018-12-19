@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import axios, { key } from "../../axios";
 import TrendingOutput from "../../components/Main/TrendingOutput/TrendingOutput";
+import Loader from "../../components/Loader/Loader";
 
 class Trending extends Component {
   state = {
     data: [],
     loaded: false,
-    index: 0,
+    index: 0
   };
 
   componentDidMount() {
-    axios.get(`trending/all/week?api_key=${key}&language=pl`)
+    axios
+      .get(`trending/all/week?api_key=${key}&language=pl`)
       .then(response => {
         this.setState({
           data: response.data.results,
@@ -29,15 +31,14 @@ class Trending extends Component {
       } else {
         this.setState({
           index: 0
-        })
+        });
       }
     }, 5000);
   }
 
   render() {
     const { data, index, loaded } = this.state;
-    return loaded ?
-
+    return loaded ? (
       <TrendingOutput
         movieName={data[index].original_title}
         image={data[index].poster_path}
@@ -48,9 +49,9 @@ class Trending extends Component {
         releaseDate={data[index].release_date}
         id={data[index].id}
       />
-      : <div className="loader-container">
-        <div className="loader">Loading...</div>
-      </div>;
+    ) : (
+      <Loader />
+    );
   }
 }
 

@@ -1,98 +1,26 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import MovieInformations from "./MovieInformations/MovieInformations";
+import MovieCast from "./MovieCast/MovieCast";
+import MovieTrailer from "./MovieTrailer/MovieTrailer";
+import MovieSimilar from "./MovieSimilar/MovieSimilar";
 import "./moreOutput.scss";
 
-const More = (props) => {
-
-  const categories = props.genres.map(item => {
-    return <span key={item.name}>{item.name} </span>
-  })
-
-  const productionCountry = props.productionCountry.map(item => {
-    return <span key={item.name}>{item.name} </span>
-  })
-
-
-  const cast = props.cast.map(item => {
-    let link = item.profile_path;
-
-    if (item.profile_path === null) {
-      link = "https://i.imgur.com/UB2aBfj.png"
-    }
-    else {
-      link = `https://image.tmdb.org/t/p/w500${item.profile_path}`;
-    }
-
-    return (
-      <div className="more-cast-card" key={item.name}>
-        <img src={link} alt="Caster" />
-        <div className="more-cast-card-info">
-          <p className="more-cast-card-info-character">{item.character}</p>
-          <p className="more-cast-card-info-actor">{item.name}</p>
-        </div>
-      </div>
-    )
-  })
-
-  let linkTrailer;
-  if (props.trailer.length === 0) {
-    linkTrailer = 'http://www.youtube.com';
-  }
-  else {
-    linkTrailer = `http://www.youtube.com/embed/${props.trailer[0].key}`;
-  }
-
-  const similar = props.similar.map(item => {
-    return (
-      <div className="more-similar-card" key={item.id}>
-        <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
-        <div className="more-similiar-card-info">
-          <p className="more-similar-title">{item.title}</p>
-          <p><i className="fas fa-star"></i> {item.vote_average}</p>
-          <button>
-            <Link to={'/more/' + item.id}>Zobacz więcej</Link>
-          </button>
-        </div>
-      </div>
-    )
-  })
-
+const More = props => {
   return (
     <section className="more">
-      <p className="more-section-info"><i className="fas fa-info"></i> Informacje ogólne</p>
-      <div className="more-container">
-
-        <div className="more-info-content">
-          <p className="more-title">{props.title}</p>
-          <p className="more-text">Kategoria: {categories}</p>
-          <p className="more-text">Produkcja: {productionCountry}</p>
-          <p className="more-text">Premiera: <span>{props.releaseDate}</span></p>
-          <p className="more-description">{props.description}</p>
-        </div>
-
-        <div className="more-cover">
-          <img src={`https://image.tmdb.org/t/p/w500${props.cover}`} alt="Poster" />
-        </div>
-      </div>
-
-      <p className="more-section-info"><i className="fas fa-users"></i>Obsada</p>
-      <div className="more-cast">
-        {cast}
-      </div>
-
-      <p className="more-section-info"><i className="fas fa-film"></i> Trailer</p>
-      <div className="more-trailer">
-        <iframe title="Trailer" width="100%" height="500"
-          src={linkTrailer}
-          frameBorder="0" />
-      </div>
-
-      <p className="more-section-info"><i className="fas fa-video"></i>Podobne filmy</p>
-      <div className="more-similar">
-        {similar}
-      </div>
+      <MovieInformations
+        title={props.title}
+        description={props.description}
+        categories={props.genres}
+        releaseDate={props.releaseDate}
+        cover={props.cover}
+        productionCountry={props.productionCountry}
+      />
+      <MovieCast cast={props.cast} />
+      <MovieTrailer trailer={props.trailer} />
+      <MovieSimilar similar={props.similar} />
     </section>
-  )
-}
+  );
+};
 
 export default More;

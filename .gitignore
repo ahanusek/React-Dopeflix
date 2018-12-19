@@ -10,7 +10,6 @@
 
 # production
 /build
-src.rar
 
 # misc
 .DS_Store

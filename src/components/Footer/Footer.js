@@ -13,14 +13,14 @@ const Footer = () => {
           </p>
           <p>
             Wszystkie filmy i seriale <br /> w jednym miejscu!
-        </p>
+          </p>
         </div>
         <div>
           <img className="tmdb-logo" src={tmdbLogo} alt="TheMobieDB Logo" />
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

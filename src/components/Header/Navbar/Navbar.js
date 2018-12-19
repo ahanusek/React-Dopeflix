@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import Search from "../../../containers/Search/Search";
 import "./navbar.scss";
@@ -14,14 +14,14 @@ const Navbar = () => {
           <Search />
           <ul>
             <li>
-              <i className="icon far fa-user-circle" title="Profil"></i>
+              <i className="icon far fa-user-circle" title="Profil" />
             </li>
             {/* <li><i class="icon fas fa-sign-in-alt" title="Zaloguj/Zarejestruj"></i></li> */}
           </ul>
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;

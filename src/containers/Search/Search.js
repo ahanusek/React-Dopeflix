@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import axios, { key } from '../../axios';
+import React, { Component } from "react";
+import axios, { key } from "../../axios";
 import SearchOutput from "../../components/Header/Navbar/SearchOutput/SearchOutput";
 
 class Search extends Component {
-
   state = {
     data: [],
     inputValue: null,
     getData: false
-  }
+  };
 
-  sendHandler = (e) => {
+  sendHandler = e => {
     e.preventDefault();
-  }
+  };
 
-  changeHandler = (e) => {
+  changeHandler = e => {
     this.setState({
       inputValue: e.target.value
-    })
+    });
 
     axios
       .get(`search/movie?api_key=${key}&language=pl&query=${this.state.inputValue}`)
@@ -32,13 +31,13 @@ class Search extends Component {
       });
 
     setTimeout(() => {
-      if ((this.state.inputValue.length === 0) && (this.state.getData === true)) {
+      if (this.state.inputValue.length === 0 && this.state.getData === true) {
         this.setState({
           getData: false
-        })
+        });
       }
-    }, 1000)
-  }
+    }, 1000);
+  };
 
   render() {
     let searchOutput;
@@ -62,13 +61,12 @@ class Search extends Component {
             className="nav-search"
             type="text"
             placeholder="Wyszukaj film.."
-            onChange={this.changeHandler} />
-          <div className="search-results-container">
-            {searchOutput}
-          </div>
+            onChange={this.changeHandler}
+          />
+          <div className="search-results-container">{searchOutput}</div>
         </form>
       </>
-    )
+    );
   }
 }
 
