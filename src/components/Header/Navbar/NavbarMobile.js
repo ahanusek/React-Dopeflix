@@ -8,7 +8,7 @@ const NavbarMobile = () => {
         <Link to="/series/">Wyszukaj serial</Link>
       </li>
       <li>
-        <Link to="/movies/">Wyszukaj film</Link>
+        <Link to="/movie-search/">Wyszukaj film</Link>
       </li>
       <li>
         <i className="icon fas fa-user" />
