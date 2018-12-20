@@ -24,10 +24,13 @@ footer {
   }
 
   @media screen and (min-width: 768px) {
-    width: 80%;
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 80%;
   }
 }
 
