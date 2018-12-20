@@ -1,27 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
+import NavbarMobile from "./NavbarMobile";
 import { Link } from "react-router-dom";
-import Search from "../../../containers/Search/Search";
 import "./navbar.scss";
 
-const Navbar = () => {
-  return (
-    <div className="nav-container">
-      <nav>
-        <div className="nav-wrapper">
+class Navbar extends Component {
+  state = {
+    mobileNav: false
+  };
+
+  openNavbar = () => {
+    this.setState({
+      mobileNav: !this.state.mobileNav
+    });
+  };
+
+  render() {
+    let mobileNavbar;
+
+    if (this.state.mobileNav) {
+      mobileNavbar = <NavbarMobile />;
+    }
+
+    return (
+      <div className="nav-container">
+        <nav>
           <p className="nav-brand-logo">
             <Link to="/">Dopeflix</Link>
           </p>
-          <Search />
-          <ul>
+          <button className="nav-hamburger" onClick={this.openNavbar}>
+            <i className="fas fa-bars" />
+          </button>
+          {mobileNavbar}
+          <ul className="nav-desktop">
             <li>
-              <i className="icon far fa-user-circle" title="Profil" />
+              <Link to="/series/">Wyszukaj serial</Link>
             </li>
-            {/* <li><i class="icon fas fa-sign-in-alt" title="Zaloguj/Zarejestruj"></i></li> */}
+            <li>
+              <Link to="/movies/">Wyszukaj film</Link>
+            </li>
+            <li>
+              <i className="icon fas fa-user" />
+            </li>
           </ul>
-        </div>
-      </nav>
-    </div>
-  );
-};
+        </nav>
+      </div>
+    );
+  }
+}
 
 export default Navbar;

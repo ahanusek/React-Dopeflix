@@ -11,18 +11,74 @@
 }
 
 nav {
+  position: relative;
   width: 90%;
   margin: auto;
+  background-color: #21273d;
 
   @media screen and (min-width: 1024px) {
     width: 80%;
   }
+
+  ul {
+    display: block;
+    list-style-type: none;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    margin: 0;
+
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      box-shadow: none;
+    }
+
+    li {
+      display: block;
+
+      @media screen and (min-width: 1024px) {
+        display: inline;
+        // padding: 10px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all ease-in-out 0.1s;
+        padding: 10px 0;
+
+        @media screen and (min-width: 1024px) {
+          margin-right: 20px;
+        }
+
+        &:hover {
+          border-bottom: 5px solid #f2588a;
+          cursor: pointer;
+          padding: 10px 0;
+          transition: all ease-in-out 0.1s;
+        }
+      }
+    }
+  }
 }
 
-.nav-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+.nav-hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 50px;
+  border: 0;
+  font-size: 20px;
+  color: #fff;
+  background-color: transparent;
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .nav-brand-logo {
@@ -42,29 +98,11 @@ nav {
   }
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.nav-desktop {
+  display: none;
 
-  li {
-    .icon {
-      position: absolute;
-      right: 0;
-      font-size: 27px;
-      line-height: 50px;
-      cursor: pointer;
-      transition: all ease-in 0.2s;
-
-      &:hover {
-        transition: all ease-in 0.2s;
-        color: #f2588a;
-      }
-
-      @media screen and (min-width: 1024px) {
-        line-height: 60px;
-      }
-    }
+  @media screen and (min-width: 1024px) {
+    display: block;
   }
 }
 
