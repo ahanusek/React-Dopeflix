@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import HomeScreen from "../../components/Main/HomeScreen/HomeScreen";
-import Trending from "../../containers/Trending/Trending";
 import More from "../../containers/More/More";
 
 const Main = () => {
