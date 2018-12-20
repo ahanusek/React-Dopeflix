@@ -20,7 +20,7 @@ const TrendingOutput = (props) => {
           <p className="movie-text">Średnia: <span>{props.rating}</span></p>
           <div className="trending-button">
             <button className="button">
-              <Link to={'/more/' + props.id}>
+              <Link to={'/movie/' + props.id}>
                 Zobacz więcej
               </Link>
             </button>

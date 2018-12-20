@@ -1,4 +1,4 @@
-.more-cast {
+.movie-cast {
   max-height: 400px;
   display: flex;
   flex-wrap: wrap;
@@ -16,12 +16,16 @@
   }
 }
 
-.more-cast-card {
+.movie-cast-card {
   width: 240px;
   min-height: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   margin-right: 5px;
   margin-bottom: 15px;
+
+  @media screen and (min-width: 350px) {
+    width: 150px;
+  }
 
   @media screen and (min-width: 350px) {
     width: 150px;
@@ -36,22 +40,22 @@
   }
 
   img {
-    height: 230px;
+    height: 200px;
     width: 100%;
   }
 }
 
-.more-cast-card-info {
+.movie-cast-card-info {
   height: 100px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.more-cast-card-info-actor {
+.movie-cast-card-info-actor {
   font-weight: 800;
   margin: 10px 0 0 0;
 }
 
-.more-cast-card-info-character {
+.movie-cast-card-info-character {
   margin: 0;
 }

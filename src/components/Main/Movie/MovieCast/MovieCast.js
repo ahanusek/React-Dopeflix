@@ -12,11 +12,11 @@ const MovieCast = ({ cast }) => {
     }
 
     return (
-      <div className="more-cast-card" key={item.name}>
+      <div className="movie-cast-card" key={item.name}>
         <img src={link} alt="Caster" />
-        <div className="more-cast-card-info">
-          <p className="more-cast-card-info-character">{item.character}</p>
-          <p className="more-cast-card-info-actor">{item.name}</p>
+        <div className="movie-cast-card-info">
+          <p className="movie-cast-card-info-character">{item.character}</p>
+          <p className="movie-cast-card-info-actor">{item.name}</p>
         </div>
       </div>
     );
@@ -24,11 +24,11 @@ const MovieCast = ({ cast }) => {
 
   return (
     <>
-      <p className="more-section-info">
+      <p className="movie-section-info">
         <i className="fas fa-users" />
         Obsada
       </p>
-      <div className="more-cast">{caster}</div>
+      <div className="movie-cast">{caster}</div>
     </>
   );
 };

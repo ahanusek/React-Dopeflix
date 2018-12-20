@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { URL, key } from "../../axios";
-import MoreOutput from "../../components/Main/More/MoreOutput";
+import MovieOutput from "../../components/Main/Movie/MovieOutput";
 import Loader from "../../components/Loader/Loader";
 
-class More extends Component {
+class Movie extends Component {
   state = {
     id: this.props.match.params.id,
     data: null,
@@ -50,16 +50,9 @@ class More extends Component {
               this.props.match.params.id
             }?api_key=${key}&language=pl`
           ),
-          axios.get(
-            `${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`
-          ),
-          axios.get(
-            `${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`
-          ),
-          axios.get(
-            `${URL}movie/${this.props.match.params.id}/similar?api_key=${key}`
-          )
-        ])
+          axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`),
+          axios.get(`${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`),
+          axios.get(`${URL}movie/${this.props.match.params.id}/similar?api_key=${key}`)])
         .then(
           axios.spread((movie, trailer, cast, similar) => {
             // Both requests are now complete
@@ -93,7 +86,7 @@ class More extends Component {
       );
 
       return (
-        <MoreOutput
+        <MovieOutput
           //for MovieInformations component
           title={this.state.data.title}
           genres={categories}
@@ -121,11 +114,9 @@ class More extends Component {
         />
       );
     } else {
-      return (
-        <Loader />
-      );
+      return <Loader />;
     }
   }
 }
 
-export default More;
+export default Movie;

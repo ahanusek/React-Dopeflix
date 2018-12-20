@@ -1,10 +1,10 @@
-.more-similar {
+.movie-similar {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
 }
 
-.more-similar-card {
+.movie-similar-card {
   //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   margin-right: 15px;
   margin-bottom: 30px;
@@ -39,14 +39,14 @@
   }
 }
 
-.more-similiar-card-info {
+.movie-similiar-card-info {
   min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.4);
 
-  .more-similar-title {
+  .movie-similar-title {
     min-height: 50px;
     font-weight: 600;
     margin: 0;

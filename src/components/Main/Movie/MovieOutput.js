@@ -3,11 +3,11 @@ import MovieInformations from "./MovieInformations/MovieInformations";
 import MovieCast from "./MovieCast/MovieCast";
 import MovieTrailer from "./MovieTrailer/MovieTrailer";
 import MovieSimilar from "./MovieSimilar/MovieSimilar";
-import "./moreOutput.scss";
+import "./movieOutput.scss";
 
-const More = props => {
+const Movie = props => {
   return (
-    <section className="more">
+    <section className="movie">
       <MovieInformations
         title={props.title}
         description={props.description}
@@ -23,4 +23,4 @@ const More = props => {
   );
 };
 
-export default More;
+export default Movie;
