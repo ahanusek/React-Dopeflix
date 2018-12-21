@@ -15,7 +15,7 @@ const MovieInformations = ({title, description, categories, releaseDate, cover, 
           <p className="movie-text">
             Premiera: <span>{releaseDate}</span>
           </p>
-          <p className="movie-description">{description}</p>
+          <p className="movie-descriptionn">{description}</p>
         </div>
 
         <div className="movie-cover">
