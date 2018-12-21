@@ -2,6 +2,7 @@ import React from "react";
 import SeriesInformations from "./SeriesInformations/SeriesInformations";
 import SeriesCast from "./SeriesCast/SeriesCast";
 import SeriesTrailer from "./SeriesTrailer/SeriesTrailer";
+import SeriesSimilar from "./SeriesSimilar/SeriesSimilar";
 import "./series.scss";
 
 const SeriesOutput = props => {
@@ -29,6 +30,7 @@ const SeriesOutput = props => {
         />
         <SeriesCast cast={props.cast} />
         <SeriesTrailer trailer={props.trailer} />
+        <SeriesSimilar similar={props.similar} />
       </section>
     </>
   )

@@ -75,6 +75,7 @@ class Series extends Component {
           background={this.state.backdrop_path}
           cast={this.state.cast}
           trailer={this.state.video.results}
+          similar={this.state.similar.results}
         />
       )
     } else {
