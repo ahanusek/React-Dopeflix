@@ -17,7 +17,6 @@ class SeriesSearchContainer extends Component {
     axios
       .get(`search/tv?api_key=${key}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
-        console.log(response.data.results)
         this.setState({
           data: response.data.results,
           dataLoaded: true
