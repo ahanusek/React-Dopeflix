@@ -38,6 +38,32 @@ class Series extends Component {
       .catch(error => console.log(error));
   }
 
+  componentDidUpdate() {
+    console.log("Update Series -> ID ->", this.props.match.params.id);
+    if (this.state.id !== this.props.match.params.id) {
+      axios
+        .all([
+          axios.get(`${URL}tv/${this.props.match.params.id}?api_key=${key}&language=pl`),
+          axios.get(`${URL}tv/${this.props.match.params.id}/credits?api_key=${key}`),
+          axios.get(`${URL}tv/${this.props.match.params.id}/videos?api_key=${key}`),
+          axios.get(`${URL}tv/${this.props.match.params.id}/similar?api_key=${key}`)
+        ])
+        .then(
+          axios.spread((series, cast, trailer, similar) => {
+            this.setState({
+              id: this.props.match.params.id,
+              data: series.data,
+              video: trailer.data,
+              cast: cast.data.cast,
+              similar: similar.data,
+              dataLoaded: true
+            })
+          })
+        )
+        .catch(error => console.log(error))
+    }
+  }
+
   render() {
     if (this.state.dataLoaded) {
 
