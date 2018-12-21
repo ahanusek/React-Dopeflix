@@ -45,11 +45,7 @@ class Movie extends Component {
     if (this.state.id !== this.props.match.params.id) {
       axios
         .all([
-          axios.get(
-            `${URL}movie/${
-              this.props.match.params.id
-            }?api_key=${key}&language=pl`
-          ),
+          axios.get(`${URL}movie/${this.props.match.params.id}?api_key=${key}&language=pl`),
           axios.get(`${URL}movie/${this.props.match.params.id}/videos?api_key=${key}`),
           axios.get(`${URL}movie/${this.props.match.params.id}/credits?api_key=${key}`),
           axios.get(`${URL}movie/${this.props.match.params.id}/similar?api_key=${key}`)])

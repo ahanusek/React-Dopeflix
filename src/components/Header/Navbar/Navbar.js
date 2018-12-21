@@ -33,7 +33,7 @@ class Navbar extends Component {
           {mobileNavbar}
           <ul className="nav-desktop">
             <li>
-              <Link to="/series/">Wyszukaj serial</Link>
+              <Link to="/series-search/">Wyszukaj serial</Link>
             </li>
             <li>
               <Link to="/movie-search/">Wyszukaj film</Link>

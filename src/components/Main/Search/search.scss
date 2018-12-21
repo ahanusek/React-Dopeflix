@@ -1,4 +1,4 @@
-.movie-search {
+.search {
   min-height: 95vh;
   width: 90%;
   display: flex;
@@ -51,7 +51,7 @@
   }
 }
 
-.movie-search-input {
+.search-input {
   width: 300px;
   text-align: center;
   border: 0;
@@ -74,7 +74,7 @@
 }
 
 //li
-.movie-search-output {
+.search-output {
   line-height: 50px;
   font-weight: 500;
   box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.75);

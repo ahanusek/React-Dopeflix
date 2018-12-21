@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios, { key } from "../../axios";
 import { Link } from "react-router-dom";
 
-class MovieSearchContainer extends Component {
+class SeriesSearchContainer extends Component {
   state = {
     data: [],
     inputValue: null,
@@ -15,7 +15,7 @@ class MovieSearchContainer extends Component {
     });
 
     axios
-      .get(`search/movie?api_key=${key}&language=pl&query=${this.state.inputValue}`)
+      .get(`search/tv?api_key=${key}&language=pl&query=${this.state.inputValue}`)
       .then(response => {
         console.log(response.data.results)
         this.setState({
@@ -26,13 +26,13 @@ class MovieSearchContainer extends Component {
       .catch(error => console.log(error));
   };
   render() {
-    let MovieSearchOutput;
+    let SeriesSearchOutput;
         
     if(this.state.dataLoaded){
-      MovieSearchOutput = this.state.data.map(item => {
+      SeriesSearchOutput = this.state.data.map(item => {
         return (
           <li className="search-output" key={item.id}>
-            <Link to={"/movie/" + item.id}>{item.original_title} <span>({item.release_date})</span></Link>
+            <Link to={"/series/" + item.id}>{item.original_name} <span>({item.first_air_date})</span></Link>
           </li>
         )
       })
@@ -44,14 +44,14 @@ class MovieSearchContainer extends Component {
           className="search-input"
           onChange={this.changeHandler}
           type="text"
-          placeholder="Wpisz nazwe filmu"
+          placeholder="Wpisz nazwe serialu"
         />
         <ul>
-          {MovieSearchOutput}
+          {SeriesSearchOutput}
         </ul>
       </>
     );
   }
 }
 
-export default MovieSearchContainer;
+export default SeriesSearchContainer;
