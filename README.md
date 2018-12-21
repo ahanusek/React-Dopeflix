@@ -1,6 +1,15 @@
 # Dopeflix
 All series and movies in one place!
 
+## Features (atm)
+- Search Movies
+- Search Series
+
+## What I want to add?
+- Profile Creation
+- "Watch List"
+- Rating of the film and series
+
 ## Technologies that I use:
 - React
 - React Router
@@ -8,6 +17,7 @@ All series and movies in one place!
 - SCSS
 
 ## Setup:
+To run application on your computer you must have API_KEY!
 
 - `yarn` - Install dependencies
 - `yarn start` - Run project
