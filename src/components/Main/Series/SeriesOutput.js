@@ -28,7 +28,7 @@ const SeriesOutput = props => {
           // seasonInformations={seasonInformations}
         />
         <SeriesCast cast={props.cast} />
-        <SeriesTrailer />
+        <SeriesTrailer trailer={props.trailer} />
       </section>
     </>
   )

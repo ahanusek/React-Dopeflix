@@ -74,6 +74,7 @@ class Series extends Component {
           vote_count={this.state.data.vote_count}
           background={this.state.backdrop_path}
           cast={this.state.cast}
+          trailer={this.state.video.results}
         />
       )
     } else {
