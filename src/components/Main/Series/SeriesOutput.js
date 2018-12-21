@@ -1,5 +1,7 @@
 import React from "react";
 import SeriesInformations from "./SeriesInformations/SeriesInformations";
+import SeriesCast from "./SeriesCast/SeriesCast";
+import SeriesTrailer from "./SeriesTrailer/SeriesTrailer";
 import "./series.scss";
 
 const SeriesOutput = props => {
@@ -25,6 +27,8 @@ const SeriesOutput = props => {
           vote_count={props.vote_count}
           // seasonInformations={seasonInformations}
         />
+        <SeriesCast cast={props.cast} />
+        <SeriesTrailer />
       </section>
     </>
   )

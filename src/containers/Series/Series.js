@@ -29,7 +29,7 @@ class Series extends Component {
             id: this.props.match.params.id,
             data: series.data,
             video: trailer.data,
-            cast: cast.data,
+            cast: cast.data.cast,
             similar: similar.data,
             dataLoaded: true
           });
@@ -53,7 +53,6 @@ class Series extends Component {
       //season informations
       const seasonInformations = this.state.data.seasons.map(item => item)
 
-      console.log(this.state.data)
       
       return (
         <SeriesOutput
@@ -74,6 +73,7 @@ class Series extends Component {
           vote_average={this.state.data.vote_average}
           vote_count={this.state.data.vote_count}
           background={this.state.backdrop_path}
+          cast={this.state.cast}
         />
       )
     } else {
