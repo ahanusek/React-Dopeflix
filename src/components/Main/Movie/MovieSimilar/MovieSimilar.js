@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./movieSimilar.scss";
 
 const MovieSimilar = ({ similar }) => {
   const similarMap = similar.map(item => {
     return (
-      <div className="movie-similar-card" key={item.id}>
+      <div className="film_series-similar-card" key={item.id}>
         <img
           src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
           alt={item.title}
         />
-        <div className="movie-similiar-card-info">
-          <p className="movie-similar-title">{item.title}</p>
+        <div className="film_series-similiar-card-info">
+          <p className="film_series-similar-title">{item.title}</p>
           <p>
             <i className="fas fa-star" /> {item.vote_average}
           </p>
@@ -25,11 +24,11 @@ const MovieSimilar = ({ similar }) => {
 
   return (
     <>
-      <p className="movie-section-info">
+      <p className="film_series-section-info">
         <i className="fas fa-video" />
         Podobne filmy
       </p>
-      <div className="movie-similar">{similarMap}</div>
+      <div className="film_series-similar">{similarMap}</div>
     </>
   );
 };

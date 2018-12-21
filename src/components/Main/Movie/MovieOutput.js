@@ -3,11 +3,10 @@ import MovieInformations from "./MovieInformations/MovieInformations";
 import MovieCast from "./MovieCast/MovieCast";
 import MovieTrailer from "./MovieTrailer/MovieTrailer";
 import MovieSimilar from "./MovieSimilar/MovieSimilar";
-import "./movieOutput.scss";
 
 const Movie = props => {
   return (
-    <section className="movie">
+    <section className="film_series-container">
       <MovieInformations
         title={props.title}
         description={props.description}
@@ -15,6 +14,7 @@ const Movie = props => {
         releaseDate={props.releaseDate}
         cover={props.cover}
         productionCountry={props.productionCountry}
+        homepage={props.homepage}
       />
       <MovieCast cast={props.cast} />
       <MovieTrailer trailer={props.trailer} />

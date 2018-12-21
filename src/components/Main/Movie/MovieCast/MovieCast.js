@@ -1,5 +1,4 @@
 import React from "react";
-import "./movieCast.scss";
 
 const MovieCast = ({ cast }) => {
   const caster = cast.map(item => {
@@ -12,11 +11,11 @@ const MovieCast = ({ cast }) => {
     }
 
     return (
-      <div className="movie-cast-card" key={item.name}>
+      <div className="film_series-cast-card" key={item.name}>
         <img src={link} alt="Caster" />
-        <div className="movie-cast-card-info">
-          <p className="movie-cast-card-info-character">{item.character}</p>
-          <p className="movie-cast-card-info-actor">{item.name}</p>
+        <div className="film_series-cast-card-info">
+          <p className="film_series-cast-card-info-character">{item.character}</p>
+          <p className="film_series-cast-card-info-actor">{item.name}</p>
         </div>
       </div>
     );
@@ -24,11 +23,11 @@ const MovieCast = ({ cast }) => {
 
   return (
     <>
-      <p className="movie-section-info">
+      <p className="film_series-section-info">
         <i className="fas fa-users" />
         Obsada
       </p>
-      <div className="movie-cast">{caster}</div>
+      <div className="film_series-cast">{caster}</div>
     </>
   );
 };

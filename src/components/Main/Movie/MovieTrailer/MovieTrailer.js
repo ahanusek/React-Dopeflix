@@ -9,10 +9,10 @@ const MovieTrailer = ({ trailer }) => {
   }
   return (
     <>
-      <p className="movie-section-info">
+      <p className="film_series-section-info">
         <i className="fas fa-film" /> Trailer
       </p>
-      <div className="movie-trailer">
+      <div className="film_series-trailer">
         <iframe
           title="Trailer"
           width="100%"
