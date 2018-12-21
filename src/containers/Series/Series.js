@@ -65,11 +65,11 @@ class Series extends Component {
           homepage={this.state.data.homepage}
           in_production={this.state.data.in_production}
           first_air_date={this.state.data.first_air_date}
-          number_of_season={this.state.data.number_of_season}
+          number_of_season={this.state.data.number_of_seasons}
           number_of_episodes={this.state.data.number_of_episodes}
           networks={networks}
           popularity={this.state.data.popularity}
-          seasonInformations={seasonInformations}
+          // seasonInformations={seasonInformations}
           vote_average={this.state.data.vote_average}
           vote_count={this.state.data.vote_count}
         />

@@ -1,4 +1,6 @@
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,17 +15,17 @@
 /* Track */
 ::-webkit-scrollbar-track {
   border-radius: 40px;
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: rgba(0, 0, 0, 0.4);
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 40px;
   background-color: #f2588a;
 }
 
-body{
-  font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   padding: 0;
   margin: 0;
@@ -31,41 +33,46 @@ body{
   background-color: #141825;
 }
 
-.button{
-  width: 150px;
-  height: 30px;
+.button {
   font-weight: 500;
-  font-size: 14px;
-  border: 0;
-  border-radius: 15px;
-  cursor: pointer;
+  border: 3px solid #00bce4;
+  border-radius: 10px;
+  padding: 10px 15px;
   margin: 10px 0;
-  transition: all ease-in 0.25s;
+  transition: transform ease-in 0.25s;
   color: #fff;
-  background-color: rgb(43, 170, 96);
+  background-color: transparent;
 
   //routing etc..
-  a{
+  a {
     text-decoration: none;
     color: #fff;
   }
-  
-  &:last-child{
+
+  &:last-child {
     margin-left: 10px;
+
+    @media screen and (max-width: 400px) {
+      margin-left: 0;
+    }
   }
 
-  &:hover{
-    transform: scale(0.95);
-    transition: all ease-in 0.25s;
+  &:hover {
+    transform: scale(0.97);
+    transition: transform ease-in 0.25s;
   }
 
-  @media screen and (min-width: 375px){
-    height: 40px;
-    font-size: 15px;
-    font-weight: 600;
+  @media screen and (max-width: 350px) {
+    // font-size: 15px;
+    // font-weight: 600;
+    padding: 5px 10px;
   }
 }
 
-.button-list{
-  background-color: rgb(221, 34, 34);
+.button-list {
+  border-color: #00bce4;
+}
+
+.button-watch {
+  border-color: crimson;
 }
