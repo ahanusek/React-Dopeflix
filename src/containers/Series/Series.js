@@ -40,7 +40,6 @@ class Series extends Component {
 
   render() {
     if (this.state.dataLoaded) {
-      console.log(this.state.data)
 
       //for categories
       const categories = this.state.data.genres.map(item => item.name);
@@ -52,8 +51,10 @@ class Series extends Component {
       const networks = this.state.data.networks.map(item => item.name);
 
       //season informations
-      const seasonInformations = this.state.data.seasons.map(item => console.log(item))
+      const seasonInformations = this.state.data.seasons.map(item => item)
 
+      console.log(this.state.data)
+      
       return (
         <SeriesOutput
           id={this.state.data.id}
@@ -69,9 +70,10 @@ class Series extends Component {
           number_of_episodes={this.state.data.number_of_episodes}
           networks={networks}
           popularity={this.state.data.popularity}
-          // seasonInformations={seasonInformations}
+          seasonInformations={seasonInformations}
           vote_average={this.state.data.vote_average}
           vote_count={this.state.data.vote_count}
+          background={this.state.backdrop_path}
         />
       )
     } else {

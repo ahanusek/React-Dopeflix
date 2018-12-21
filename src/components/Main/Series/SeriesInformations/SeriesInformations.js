@@ -2,7 +2,6 @@ import React from "react";
 
 //, {title, categories, production_country, cover, description, homepage, in_production, first_air_date, number_of_season, number_of_episodes, networks, popularity, vote_average, vote_count}
 const SeriesInformations = (props) => {
-  console.log(props)
   return (
     <>
       <p className="film_series-section-info">
