@@ -101,7 +101,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   overflow: scroll;
   overflow-x: hidden;
 
@@ -115,6 +115,7 @@
 }
 
 .film_series-cast-card {
+  flex-grow: 1;
   width: 240px;
   min-height: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);

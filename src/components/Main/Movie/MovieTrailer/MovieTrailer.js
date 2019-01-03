@@ -3,9 +3,9 @@ import React from "react";
 const MovieTrailer = ({ trailer }) => {
   let linkTrailer;
   if (trailer.length === 0) {
-    linkTrailer = "http://www.youtube.com";
+    linkTrailer = "https://www.youtube.com";
   } else {
-    linkTrailer = `http://www.youtube.com/embed/${trailer[0].key}`;
+    linkTrailer = `https://www.youtube.com/embed/${trailer[0].key}`;
   }
   return (
     <>
