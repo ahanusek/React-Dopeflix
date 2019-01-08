@@ -17,9 +17,9 @@ const MovieInformations = ({title, description, categories, releaseDate, cover, 
           <p className="film_series-description">{description}</p>
           
           <div>
-            <button className="button button-list">
+            {/* <button className="button button-list">
               Dodaj do swojej listy
-            </button>
+            </button> */}
 
             <button className="button button-watch">
               <a href={homepage} target="_blank" rel="noopener noreferrer">Oglądaj teraz!</a>

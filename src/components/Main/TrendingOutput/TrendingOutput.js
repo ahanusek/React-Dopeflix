@@ -24,7 +24,7 @@ const TrendingOutput = (props) => {
                 Zobacz więcej
               </Link>
             </button>
-            <button className="button button-list">Dodaj do listy</button>
+            {/* <button className="button button-list">Dodaj do listy</button> */}
           </div>
         </div>
       </div>

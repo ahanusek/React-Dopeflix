@@ -20,9 +20,9 @@ const SeriesInformations = (props) => {
           <p className="film_series-description">{props.description}</p>
           
           <div>
-            <button className="button button-list">
+            {/* <button className="button button-list">
               Dodaj do swojej listy
-            </button>
+            </button> */}
 
             <button className="button button-watch">
               <a href={props.homepage} target="_blank" rel="noopener noreferrer">Oglądaj teraz!</a>

@@ -38,9 +38,9 @@ class Navbar extends Component {
             <li>
               <Link to="/movie-search/">Wyszukaj film</Link>
             </li>
-            <li>
+            {/* <li>
               <i className="icon fas fa-user" />
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
