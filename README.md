@@ -1,6 +1,8 @@
 # Dopeflix
 All series and movies in one place!
 
+[Live preview:](https://dopeflix.firebaseapp.com)
+
 ## Features (atm)
 - Search Movies
 - Search Series
@@ -15,6 +17,7 @@ All series and movies in one place!
 - React Router
 - Axios
 - SCSS
+- Firebase Hosting
 
 ## Setup:
 To run application on your computer you must have API_KEY!
