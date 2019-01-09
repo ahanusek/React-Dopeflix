@@ -20,11 +20,31 @@ All series and movies in one place!
 - Firebase Hosting
 
 ## Setup:
-To run application on your computer you must have API_KEY!
 
-- `yarn` - Install dependencies
-- `yarn start` - Run project
-- `yarn build` - Build project
+1.Create a file named `axios.js` in the directory `src`
+
+2.Paste the code:
+```
+import axios from "axios";
+
+export const key = "Your api key";
+export const URL = "https://api.themoviedb.org/3/";
+
+const instance = axios.create({
+  baseURL: URL
+});
+
+export default instance;
+
+```
+
+3.Paste your api key
+
+4.Run:
+
+- `yarn / npm i` - Install dependencies
+- `yarn start / npm run start` - Run project
+- `yarn build / npm run build` - Build project
 
 ## License
  - [MIT License](https://github.com/folxu/Dopeflix/blob/master/LICENSE)
