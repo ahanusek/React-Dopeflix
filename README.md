@@ -47,5 +47,5 @@ export default instance;
 - `yarn build / npm run build` - Build project
 
 ## License
- - [MIT License](https://github.com/folxu/Dopeflix/blob/master/LICENSE)
+ - [MIT License](https://github.com/adamflx/Dopeflix/blob/master/LICENSE)
  - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
