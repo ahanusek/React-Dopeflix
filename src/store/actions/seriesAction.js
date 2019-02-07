@@ -9,7 +9,7 @@ export const fetchSeriesBegin = () => ({
   type: FETCH_SERIES_BEGIN
 });
 
-export const fetchSeriesSuccess = seriesID => {
+export const fetchSeries = seriesID => {
   return dispatch => {
     axios
       .all([
@@ -29,11 +29,11 @@ export const fetchSeriesSuccess = seriesID => {
           });
         })
       )
-      .catch(error => console.log(error));
+      .catch(error => {
+        dispatch({
+          type: FETCH_SERIES_FAILURE,
+          error: error
+        });
+      });
   };
 };
-
-export const fetchSeriesFailure = error => ({
-  type: FETCH_SERIES_FAILURE,
-  payload: { error }
-});

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Loader from "../../components/Loader/Loader";
 import SeriesOutput from "../../components/Main/Series/SeriesOutput";
 import { connect } from "react-redux";
-import { fetchSeriesSuccess } from "../../store/actions/seriesAction";
-import { fetchSeriesUnmount } from "../../store/actions/seriesAction";
+import { fetchSeries } from "../../store/actions/seriesAction";
+import ErrorInformations from "../../components/Main/ErrorInformations/ErrorInformations";
 
 class Series extends Component {
   state = {
@@ -11,19 +11,25 @@ class Series extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchSeriesSuccess(this.props.match.params.id);
+    this.props.fetchSeries(this.props.match.params.id);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.id !== prevState.id) {
       console.log("update component");
-      this.props.fetchSeriesSuccess(this.props.match.params.id);
+      this.props.fetchSeries(this.props.match.params.id);
       this.setState({ id: this.props.match.params.id });
       window.scrollTo(0, 0);
     }
   }
 
   render() {
+    if (this.props.error) {
+      const status = this.props.error.response.status;
+      const msg = this.props.error.response.statusText;
+      return <ErrorInformations status={status} msg={msg} />;
+    }
+
     if (this.props.loading) {
       return <Loader />;
     } else {
@@ -67,11 +73,12 @@ const mapStateToProps = state => {
     cast: state.seriesReducer.cast,
     trailer: state.seriesReducer.trailer,
     similar: state.seriesReducer.similar,
-    loading: state.seriesReducer.loading
+    loading: state.seriesReducer.loading,
+    error: state.seriesReducer.error
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchSeriesSuccess }
+  { fetchSeries }
 )(Series);
