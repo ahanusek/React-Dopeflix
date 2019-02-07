@@ -1,56 +1,57 @@
 import React, { Component } from "react";
-import axios, { key } from "../../axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchSeriesSearchSuccess } from "../../store/actions/seriesSearchAction";
 
 class SeriesSearchContainer extends Component {
   state = {
-    data: [],
-    inputValue: null,
-    dataLoaded: null
+    inputValue: null
   };
 
-  changeHandler = e => {
-    this.setState({
-      inputValue: e.target.value
-    });
-
-    axios
-      .get(`search/tv?api_key=${key}&language=pl&query=${this.state.inputValue}`)
-      .then(response => {
-        this.setState({
-          data: response.data.results,
-          dataLoaded: true
-        })
-      })
-      .catch(error => console.log(error));
+  changeHandler = event => {
+    this.setState({ inputValue: event.target.value });
+    this.props.fetchSeriesSearchSuccess(this.state.inputValue);
   };
+
   render() {
-    let SeriesSearchOutput;
-        
-    if(this.state.dataLoaded){
-      SeriesSearchOutput = this.state.data.map(item => {
+    const { data, loading } = this.props;
+    let SeriesSearchList;
+    if (!loading) {
+      SeriesSearchList = data.map(item => {
+        console.log(item);
         return (
           <li className="search-output" key={item.id}>
-            <Link to={"/series/" + item.id}>{item.original_name} <span>({item.first_air_date})</span></Link>
+            <Link to={"/series/" + item.id}>
+              {item.original_name} <span>({item.first_air_date})</span>
+            </Link>
           </li>
-        )
-      })
+        );
+      });
     }
-
     return (
       <>
         <input
-          className="search-input"
-          onChange={this.changeHandler}
           type="text"
-          placeholder="Wpisz nazwe serialu"
+          className="search-input"
+          placeholder="Podaj nazwe serialu"
+          onChange={this.changeHandler}
         />
-        <ul>
-          {SeriesSearchOutput}
-        </ul>
+
+        {/* render of search list */}
+        <ul>{SeriesSearchList}</ul>
       </>
     );
   }
 }
 
-export default SeriesSearchContainer;
+const mapStateToProps = state => {
+  return {
+    data: state.seriesSearchReducer.data,
+    loading: state.seriesSearchReducer.loading
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchSeriesSearchSuccess }
+)(SeriesSearchContainer);

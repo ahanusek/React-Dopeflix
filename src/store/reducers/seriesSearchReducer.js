@@ -1,32 +1,33 @@
 import {
-  FETCH_PRODUCTS_BEGIN,
-  FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_FAILURE
-} from "../actions/fetchTrendingDataAction";
+  FETCH_SERIES_SEARCH_BEGIN,
+  FETCH_SERIES_SEARCH_SUCCESS,
+  FETCH_SERIES_SEARCH_FAILURE
+} from "../actions/seriesSearchAction";
 
 const initialState = {
-  data: [],
+  data: {}, // mapStateToProps must return a object
+  inputValue: null,
   loading: true,
   error: null
 };
 
-const fetchTrendingDataReducer = (state = initialState, action) => {
+const fetchSeriesSearchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PRODUCTS_BEGIN:
+    case FETCH_SERIES_SEARCH_BEGIN:
       return {
         ...state,
         loading: true,
         error: null
       };
 
-    case FETCH_PRODUCTS_SUCCESS:
+    case FETCH_SERIES_SEARCH_SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.payload
       };
 
-    case FETCH_PRODUCTS_FAILURE:
+    case FETCH_SERIES_SEARCH_FAILURE:
       return {
         ...state,
         loading: false,
@@ -39,4 +40,4 @@ const fetchTrendingDataReducer = (state = initialState, action) => {
   }
 };
 
-export default fetchTrendingDataReducer;
+export default fetchSeriesSearchReducer;

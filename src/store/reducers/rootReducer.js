@@ -1,10 +1,12 @@
 import authReducer from "./authReducer";
-import fetchTrendingDataReducer from "./fetchTrendingDataReducer";
+import trendingReducer from "./trendingReducer";
+import seriesSearchReducer from "./seriesSearchReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  fetchTrendingDataReducer: fetchTrendingDataReducer
+  trendingReducer: trendingReducer,
+  seriesSearchReducer: seriesSearchReducer
 });
 
 export default rootReducer;

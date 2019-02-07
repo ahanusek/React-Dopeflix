@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import TrendingOutput from "../../components/Main/TrendingOutput/TrendingOutput";
 import Loader from "../../components/Loader/Loader";
 import { connect } from "react-redux";
-import { fetchProductsSuccess } from "../../store/actions/fetchTrendingDataAction";
+import { fetchTrendingSuccess } from "../../store/actions/trendingAction";
 
 class Trending extends Component {
   state = {
-    // temporarily state
+    // state for slider
     index: 0
   };
 
   componentDidMount() {
-    this.props.fetchProductsSuccess();
+    this.props.fetchTrendingSuccess();
 
     // slider
     setInterval(() => {
@@ -51,12 +51,12 @@ class Trending extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    data: state.fetchTrendingDataReducer.data,
-    loaded: state.fetchTrendingDataReducer.loading
+    data: state.trendingReducer.data,
+    loaded: state.trendingReducer.loading
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchProductsSuccess }
+  { fetchTrendingSuccess }
 )(Trending);
