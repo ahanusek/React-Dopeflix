@@ -3,6 +3,7 @@ import TrendingOutput from "../../components/Main/TrendingOutput/TrendingOutput"
 import Loader from "../../components/Loader/Loader";
 import { connect } from "react-redux";
 import { fetchTrendingSuccess } from "../../store/actions/trendingAction";
+import ErrorInformations from "../../components/Main/ErrorInformations/ErrorInformations";
 
 class Trending extends Component {
   state = {
@@ -28,7 +29,14 @@ class Trending extends Component {
   }
 
   render() {
-    const { data, loaded } = this.props;
+    const { data, loaded, error } = this.props;
+
+    if (error) {
+      const status = this.props.error.response.status;
+      const msg = this.props.error.response.statusText;
+      return <ErrorInformations status={status} msg={msg} />;
+    }
+
     if (loaded) {
       return <Loader />;
     } else {
@@ -49,10 +57,10 @@ class Trending extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     data: state.trendingReducer.data,
-    loaded: state.trendingReducer.loading
+    loaded: state.trendingReducer.loading,
+    error: state.trendingReducer.error
   };
 };
 

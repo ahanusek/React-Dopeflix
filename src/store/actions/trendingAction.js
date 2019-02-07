@@ -19,12 +19,10 @@ export const fetchTrendingSuccess = () => {
         });
       })
       .catch(error => {
-        console.log(error);
+        dispatch({
+          type: FETCH_TRENDING_FAILURE,
+          error: error
+        });
       });
   };
 };
-
-export const fetchTrendingFailure = error => ({
-  type: FETCH_TRENDING_FAILURE,
-  payload: { error }
-});
