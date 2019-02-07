@@ -1,7 +1,6 @@
 import React from "react";
 
-const SeriesCast = (props) => {
-
+const SeriesCast = props => {
   const caster = props.cast.map(item => {
     let link = item.profile_path;
     if (item.profile_path === null) {

@@ -5,7 +5,6 @@ import SeriesTrailer from "./SeriesTrailer/SeriesTrailer";
 import SeriesSimilar from "./SeriesSimilar/SeriesSimilar";
 
 const SeriesOutput = props => {
-
   return (
     <>
       <section className="film_series-container">
@@ -32,7 +31,7 @@ const SeriesOutput = props => {
         <SeriesSimilar similar={props.similar} />
       </section>
     </>
-  )
+  );
 };
 
 export default SeriesOutput;
