@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchSeriesSearchSuccess } from "../../store/actions/seriesSearchAction";
+import ErrorInformations from "../../components/Main/ErrorInformations/ErrorInformations";
 
 class SeriesSearchContainer extends Component {
   state = {
@@ -14,11 +15,17 @@ class SeriesSearchContainer extends Component {
   };
 
   render() {
-    const { data, loading } = this.props;
+    const { data, loading, error } = this.props;
+
+    if (error) {
+      const status = this.props.error.response.status;
+      const msg = this.props.error.response.statusText;
+      return <ErrorInformations status={status} msg={msg} />;
+    }
+
     let SeriesSearchList;
     if (!loading) {
       SeriesSearchList = data.map(item => {
-        console.log(item);
         return (
           <li className="search-output" key={item.id}>
             <Link to={"/series/" + item.id}>
@@ -47,7 +54,8 @@ class SeriesSearchContainer extends Component {
 const mapStateToProps = state => {
   return {
     data: state.seriesSearchReducer.data,
-    loading: state.seriesSearchReducer.loading
+    loading: state.seriesSearchReducer.loading,
+    error: state.seriesSearchReducer.error
   };
 };
 

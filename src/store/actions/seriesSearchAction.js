@@ -18,11 +18,11 @@ export const fetchSeriesSearchSuccess = value => {
           payload: response.data.results
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        dispatch({
+          type: FETCH_SERIES_SEARCH_FAILURE,
+          error: error
+        });
+      });
   };
 };
-
-export const fetchSeriesSearchFailure = error => ({
-  type: FETCH_SERIES_SEARCH_FAILURE,
-  payload: { error }
-});

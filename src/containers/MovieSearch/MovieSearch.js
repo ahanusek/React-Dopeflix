@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchMovieSearchSuccess } from "../../store/actions/movieSearchAction";
-
+import ErrorInformations from "../../components/Main/ErrorInformations/ErrorInformations";
 class MovieSearchContainer extends Component {
   state = {
     inputValue: null
@@ -14,8 +14,14 @@ class MovieSearchContainer extends Component {
   };
 
   render() {
-    console.log(this.props);
-    const { data, loading } = this.props;
+    const { data, loading, error } = this.props;
+
+    if (error) {
+      const status = this.props.error.response.status;
+      const msg = this.props.error.response.statusText;
+      return <ErrorInformations status={status} msg={msg} />;
+    }
+
     let MovieSearchList;
     if (!loading) {
       MovieSearchList = data.map(item => {
@@ -46,7 +52,8 @@ class MovieSearchContainer extends Component {
 const mapStateToProps = state => {
   return {
     data: state.movieSearchReducer.data,
-    loading: state.movieSearchReducer.loading
+    loading: state.movieSearchReducer.loading,
+    error: state.movieSearchReducer.error
   };
 };
 export default connect(

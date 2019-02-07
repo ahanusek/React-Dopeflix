@@ -9,7 +9,6 @@ export const fetchMovieSearchBegin = () => ({
 });
 
 export const fetchMovieSearchSuccess = value => {
-  // console.log(value.target.value);
   return dispatch => {
     axios
       .get(`search/movie?api_key=${key}&language=pl&query=${value}`)
@@ -19,11 +18,11 @@ export const fetchMovieSearchSuccess = value => {
           payload: response.data.results
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        dispatch({
+          type: FETCH_MOVIE_SEARCH_FAILURE,
+          error: error
+        });
+      });
   };
 };
-
-export const fetchMovieSearchFailure = error => ({
-  type: FETCH_MOVIE_SEARCH_FAILURE,
-  payload: { error }
-});

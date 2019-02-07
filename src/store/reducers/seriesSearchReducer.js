@@ -31,8 +31,7 @@ const fetchSeriesSearchReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.error,
-        data: []
+        error: action.error
       };
 
     default:
