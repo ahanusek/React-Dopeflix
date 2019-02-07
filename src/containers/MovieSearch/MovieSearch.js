@@ -1,57 +1,55 @@
 import React, { Component } from "react";
-import axios, { key } from "../../axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchMovieSearchSuccess } from "../../store/actions/movieSearchAction";
 
 class MovieSearchContainer extends Component {
   state = {
-    data: [],
-    inputValue: null,
-    dataLoaded: null
+    inputValue: null
   };
 
-  changeHandler = e => {
-    this.setState({
-      inputValue: e.target.value
-    });
-
-    axios
-      .get(`search/movie?api_key=${key}&language=pl&query=${this.state.inputValue}`)
-      .then(response => {
-        console.log(response.data.results)
-        this.setState({
-          data: response.data.results,
-          dataLoaded: true
-        })
-      })
-      .catch(error => console.log(error));
+  changeHandler = event => {
+    this.setState({ inputValue: event.target.value });
+    this.props.fetchMovieSearchSuccess(this.state.inputValue);
   };
+
   render() {
-    let MovieSearchOutput;
-        
-    if(this.state.dataLoaded){
-      MovieSearchOutput = this.state.data.map(item => {
+    console.log(this.props);
+    const { data, loading } = this.props;
+    let MovieSearchList;
+    if (!loading) {
+      MovieSearchList = data.map(item => {
         return (
           <li className="search-output" key={item.id}>
-            <Link to={"/movie/" + item.id}>{item.original_title} <span>({item.release_date})</span></Link>
+            <Link to={"/movie/" + item.id}>
+              {item.original_title} <span>({item.release_date})</span>
+            </Link>
           </li>
-        )
-      })
+        );
+      });
     }
-
     return (
       <>
         <input
           className="search-input"
           onChange={this.changeHandler}
           type="text"
-          placeholder="Wpisz nazwe filmu"
+          placeholder="Podaj nazwe filmu"
         />
-        <ul>
-          {MovieSearchOutput}
-        </ul>
+
+        <ul>{MovieSearchList}</ul>
       </>
     );
   }
 }
 
-export default MovieSearchContainer;
+const mapStateToProps = state => {
+  return {
+    data: state.movieSearchReducer.data,
+    loading: state.movieSearchReducer.loading
+  };
+};
+export default connect(
+  mapStateToProps,
+  { fetchMovieSearchSuccess }
+)(MovieSearchContainer);
