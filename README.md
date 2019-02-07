@@ -14,6 +14,8 @@ All series and movies in one place!
 
 ## Technologies that I use:
 - React
+- Redux
+- Redux-Thunk
 - React Router
 - Axios
 - SCSS

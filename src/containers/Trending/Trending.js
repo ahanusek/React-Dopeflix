@@ -1,30 +1,21 @@
 import React, { Component } from "react";
-import axios, { key } from "../../axios";
 import TrendingOutput from "../../components/Main/TrendingOutput/TrendingOutput";
 import Loader from "../../components/Loader/Loader";
+import { connect } from "react-redux";
+import { fetchProductsSuccess } from "../../store/actions/fetchTrendingDataAction";
 
 class Trending extends Component {
   state = {
-    data: [],
-    loaded: false,
+    // temporarily state
     index: 0
   };
 
   componentDidMount() {
-    axios
-      .get(`trending/all/week?api_key=${key}&language=pl`)
-      .then(response => {
-        this.setState({
-          data: response.data.results,
-          loaded: true
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.fetchProductsSuccess();
 
+    // slider
     setInterval(() => {
-      if (this.state.index < this.state.data.length - 1) {
+      if (this.state.index < this.props.data.length - 1) {
         this.setState({
           index: this.state.index + 1
         });
@@ -37,22 +28,35 @@ class Trending extends Component {
   }
 
   render() {
-    const { data, index, loaded } = this.state;
-    return loaded ? (
-      <TrendingOutput
-        movieName={data[index].original_title}
-        image={data[index].poster_path}
-        description={data[index].overview}
-        ratingCount={data[index].vote_count}
-        rating={data[index].vote_average}
-        picture={data[index].backdrop_path}
-        releaseDate={data[index].release_date}
-        id={data[index].id}
-      />
-    ) : (
-      <Loader />
-    );
+    const { data, loaded } = this.props;
+    if (loaded) {
+      return <Loader />;
+    } else {
+      return (
+        <TrendingOutput
+          movieName={data[this.state.index].original_title}
+          image={data[this.state.index].poster_path}
+          description={data[this.state.index].overview}
+          ratingCount={data[this.state.index].vote_count}
+          rating={data[this.state.index].vote_average}
+          picture={data[this.state.index].backdrop_path}
+          releaseDate={data[this.state.index].release_date}
+          id={data[this.state.index].id}
+        />
+      );
+    }
   }
 }
 
-export default Trending;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    data: state.fetchTrendingDataReducer.data,
+    loaded: state.fetchTrendingDataReducer.loading
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchProductsSuccess }
+)(Trending);
