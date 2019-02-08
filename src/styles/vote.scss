@@ -1,0 +1,57 @@
+.vote_text {
+  width: fit-content;
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 3px solid #f2588a;
+  margin-bottom: 5px;
+}
+
+.vote {
+  width: fit-content;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 10px 0;
+
+  button {
+    font-size: 18px;
+    border: 0;
+    padding: 4px 8px;
+    color: #fff;
+    background-color: transparent;
+
+    &:last-child {
+      padding: 0 8px 0 0;
+    }
+  }
+
+  & > button {
+    &:hover,
+    &:active,
+    &:focus {
+      color: yellow;
+
+      & ~ button {
+        .fas {
+          color: yellow;
+        }
+      }
+    }
+  }
+}
+
+.voted {
+  width: fit-content;
+  border-bottom: 3px solid #f2588a;
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+
+  span {
+    font-weight: 800;
+    color: yellow;
+  }
+}

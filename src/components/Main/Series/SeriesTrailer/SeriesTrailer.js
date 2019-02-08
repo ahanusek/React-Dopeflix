@@ -1,7 +1,6 @@
 import React from "react";
 
 const SeriesTrailer = ({ trailer }) => {
-  
   let linkTrailer;
   if (trailer.length === 0) {
     linkTrailer = "https://www.youtube.com";

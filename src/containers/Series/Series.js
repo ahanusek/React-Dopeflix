@@ -41,7 +41,6 @@ class Series extends Component {
 
       return (
         <SeriesOutput
-          id={this.props.match.params.id}
           title={series.name}
           genres={categories}
           production_country={productionCountry}
@@ -61,6 +60,8 @@ class Series extends Component {
           cast={cast}
           trailer={trailer.results}
           similar={similar.results}
+          id={this.props.match.params.id}
+          type="series"
         />
       );
     }

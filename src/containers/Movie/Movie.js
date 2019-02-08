@@ -50,6 +50,8 @@ class Movie extends Component {
           cast={cast}
           trailer={trailer.results}
           similar={similar.results}
+          id={this.props.match.params.id}
+          type="movie"
         />
       );
     }

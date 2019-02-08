@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import tmdbLogo from "../../tmdb-logo.png";
-import "./footer.scss";
 
 const Footer = () => {
   return (

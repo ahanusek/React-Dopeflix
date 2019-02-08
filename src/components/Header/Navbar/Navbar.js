@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavbarMobile from "./NavbarMobile";
 import { Link } from "react-router-dom";
-import "./navbar.scss";
 
 class Navbar extends Component {
   state = {

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SeriesSimilar = ({ similar }) => {
-  
   const similarMap = similar.map(item => {
     return (
       <div className="film_series-similar-card" key={item.id}>
@@ -14,6 +13,7 @@ const SeriesSimilar = ({ similar }) => {
           <p className="film_series-similar-title">{item.name}</p>
           <p>
             <i className="fas fa-star" /> {item.vote_average}
+            <span> - Ocena TMDB</span>
           </p>
           <button>
             <Link to={"/series/" + item.id}>Zobacz więcej</Link>
