@@ -3,6 +3,7 @@ import SeriesInformations from "./SeriesInformations/SeriesInformations";
 import SeriesCast from "./SeriesCast/SeriesCast";
 import SeriesTrailer from "./SeriesTrailer/SeriesTrailer";
 import SeriesSimilar from "./SeriesSimilar/SeriesSimilar";
+import Vote from "../../../containers/Vote/Vote";
 
 const SeriesOutput = props => {
   return (
@@ -24,8 +25,8 @@ const SeriesOutput = props => {
           popularity={props.popularity}
           vote_average={props.vote_average}
           vote_count={props.vote_count}
-          // seasonInformations={seasonInformations}
         />
+        <Vote id={props.id} type={props.type} />
         <SeriesCast cast={props.cast} />
         <SeriesTrailer trailer={props.trailer} />
         <SeriesSimilar similar={props.similar} />

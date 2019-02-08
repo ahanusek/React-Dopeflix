@@ -5,7 +5,7 @@ const AfterVote = ({ voteRating }) => {
   return (
     <div className="voted">
       <p>
-        Twoja ocena tego filmu to: <span>{voteRating}/5</span> gwiazdek.
+        Twoja ocena to: <span>{voteRating}/5</span> gwiazdek.
       </p>
     </div>
   );
