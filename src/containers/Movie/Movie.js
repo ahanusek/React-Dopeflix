@@ -14,7 +14,7 @@ class Movie extends Component {
     this.props.fetchMovie(this.props.match.params.id);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.match.params.id !== prevState.id) {
       console.log("update component");
       this.props.fetchMovie(this.props.match.params.id);
@@ -52,6 +52,7 @@ class Movie extends Component {
           similar={similar.results}
           id={this.props.match.params.id}
           type="movie"
+          UID="123456" // add here props with UID from firebase
         />
       );
     }

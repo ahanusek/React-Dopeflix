@@ -14,7 +14,7 @@ class Series extends Component {
     this.props.fetchSeries(this.props.match.params.id);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.match.params.id !== prevState.id) {
       console.log("update component");
       this.props.fetchSeries(this.props.match.params.id);
@@ -62,6 +62,7 @@ class Series extends Component {
           similar={similar.results}
           id={this.props.match.params.id}
           type="series"
+          UID="123456" // add here props with UID from firebase
         />
       );
     }

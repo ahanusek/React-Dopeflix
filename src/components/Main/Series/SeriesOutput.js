@@ -26,7 +26,7 @@ const SeriesOutput = props => {
           vote_average={props.vote_average}
           vote_count={props.vote_count}
         />
-        <Vote id={props.id} type={props.type} />
+        <Vote id={props.id} type={props.type} UID={props.UID} />
         <SeriesCast cast={props.cast} />
         <SeriesTrailer trailer={props.trailer} />
         <SeriesSimilar similar={props.similar} />
