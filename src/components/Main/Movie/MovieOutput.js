@@ -3,6 +3,7 @@ import MovieInformations from "./MovieInformations/MovieInformations";
 import MovieCast from "./MovieCast/MovieCast";
 import MovieTrailer from "./MovieTrailer/MovieTrailer";
 import MovieSimilar from "./MovieSimilar/MovieSimilar";
+import Vote from "../../../containers/Vote/Vote";
 
 const Movie = props => {
   return (
@@ -16,6 +17,7 @@ const Movie = props => {
         productionCountry={props.productionCountry}
         homepage={props.homepage}
       />
+      <Vote />
       <MovieCast cast={props.cast} />
       <MovieTrailer trailer={props.trailer} />
       <MovieSimilar similar={props.similar} />

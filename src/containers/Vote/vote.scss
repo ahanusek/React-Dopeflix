@@ -1,0 +1,32 @@
+.vote {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 10px 0;
+
+  button {
+    font-size: 20px;
+    border: 0;
+    padding: 4px 8px;
+    color: #fff;
+    background-color: transparent;
+
+    &:last-child {
+      padding: 0 8px 0 0;
+    }
+  }
+
+  & > button {
+    &:hover,
+    &:active,
+    &:focus {
+      color: yellow;
+
+      & ~ button {
+        .fas {
+          color: yellow;
+        }
+      }
+    }
+  }
+}
