@@ -1,5 +1,6 @@
 import React from "react";
 
+// prettier-ignore
 const MovieCast = ({ cast }) => {
   const caster = cast.map(item => {
     let link = item.profile_path;

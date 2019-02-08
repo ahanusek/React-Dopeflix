@@ -13,6 +13,7 @@ const MovieSimilar = ({ similar }) => {
           <p className="film_series-similar-title">{item.title}</p>
           <p>
             <i className="fas fa-star" /> {item.vote_average}
+            <span> - Ocena TMDB</span>
           </p>
           <button>
             <Link to={"/movie/" + item.id}>Zobacz więcej</Link>

@@ -1,5 +1,4 @@
 import React from "react";
-import "./vote.scss";
 
 const BeforeVote = ({ voteClickHandler }) => {
   return (

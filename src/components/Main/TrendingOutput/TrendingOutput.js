@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./trendingOutput.scss";
 
 const TrendingOutput = props => {
   return (
@@ -29,7 +28,6 @@ const TrendingOutput = props => {
             <button className="button">
               <Link to={"/movie/" + props.id}>Zobacz więcej</Link>
             </button>
-            {/* <button className="button button-list">Dodaj do listy</button> */}
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export const addVote = (id, type, voteRating) => {
         id: id, // movie/series id from Vote component
         type: type, // movie/series type from Vote component
         voteRating: voteRating, // rating (1, 2, 3, 4, 5),
-        userID: 123456
+        userID: 123456 // user id
       })
       .then(resp => {
         dispatch({

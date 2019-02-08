@@ -5,7 +5,7 @@ import {
 } from "../actions/seriesSearchAction";
 
 const initialState = {
-  data: {}, // mapStateToProps must return a object
+  data: {},
   inputValue: null,
   loading: true,
   error: null
