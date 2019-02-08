@@ -10,22 +10,23 @@ class Vote extends Component {
     const id = this.props.id;
     const type = this.props.type;
     const voteRating = voteValue.currentTarget.value;
-    this.props.addVote(id, type, voteRating);
+    const UID = this.props.UID;
+    this.props.addVote(id, type, voteRating, UID);
   };
 
   componentDidMount() {
     const id = this.props.id;
     const type = this.props.type;
-    const userID = 123456;
-    this.props.getVote(id, type, userID);
+    const UID = this.props.UID;
+    this.props.getVote(id, type, UID);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id) {
       const id = this.props.id;
       const type = this.props.type;
-      const userID = 123456;
-      this.props.getVote(id, type, userID);
+      const UID = this.props.UID;
+      this.props.getVote(id, type, UID);
     }
   }
 
