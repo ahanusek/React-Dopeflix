@@ -9,7 +9,7 @@ import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  vote: voteReducer,
+  voteReducer: voteReducer,
   trendingReducer: trendingReducer,
   seriesSearchReducer: seriesSearchReducer,
   movieSearchReducer: movieSearchReducer,

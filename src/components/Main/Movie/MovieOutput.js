@@ -17,7 +17,7 @@ const Movie = props => {
         productionCountry={props.productionCountry}
         homepage={props.homepage}
       />
-      <Vote />
+      <Vote id={props.id} type={props.type} />
       <MovieCast cast={props.cast} />
       <MovieTrailer trailer={props.trailer} />
       <MovieSimilar similar={props.similar} />

@@ -1,12 +1,13 @@
-import { ADD_VOTE } from "../actions/voteAction";
+import { ADDED_VOTE } from "../actions/voteAction";
 
 const initialState = {
-  added: false
+  added: false,
+  error: null
 };
 
 const voteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_VOTE:
+    case ADDED_VOTE:
       return {
         ...state,
         added: true

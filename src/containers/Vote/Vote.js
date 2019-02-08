@@ -5,9 +5,15 @@ import "./vote.scss";
 
 class Vote extends Component {
   voteClickHandler = voteValue => {
-    this.props.addVote(voteValue.currentTarget.value);
-    console.log(voteValue.currentTarget.value);
+    const id = this.props.id;
+    const type = this.props.type;
+    const voteRating = voteValue.currentTarget.value;
+    this.props.addVote(id, type, voteRating);
   };
+
+  componentDidUpdate() {
+    console.log(this.props);
+  }
 
   render() {
     return (
@@ -33,8 +39,9 @@ class Vote extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-  return state;
+  return {
+    vote: state.voteReducer
+  };
 };
 
 export default connect(
