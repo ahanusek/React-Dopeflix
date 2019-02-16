@@ -7,25 +7,23 @@ import ErrorInformations from "../../components/Main/ErrorInformations/ErrorInfo
 
 class Trending extends Component {
   state = {
-    // state for slider
-    index: 0
+    index: 0 // for slider
   };
+
+  slider = setInterval(() => {
+    if (this.state.index < this.props.data.length - 1) {
+      this.setState({ index: this.state.index + 1 });
+    } else {
+      this.setState({ index: 0 });
+    }
+  }, 5000);
 
   componentDidMount() {
     this.props.fetchTrendingSuccess();
+  }
 
-    // slider
-    setInterval(() => {
-      if (this.state.index < this.props.data.length - 1) {
-        this.setState({
-          index: this.state.index + 1
-        });
-      } else {
-        this.setState({
-          index: 0
-        });
-      }
-    }, 5000);
+  componentWillUnmount() {
+    clearInterval(this.slider);
   }
 
   render() {
