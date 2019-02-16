@@ -17,9 +17,9 @@ class SeriesSearchContainer extends Component {
   render() {
     const { data, loading, error } = this.props;
 
-    if (error) {
-      const status = this.props.error.response.status;
-      const msg = this.props.error.response.statusText;
+    if (error && error.response.status !== 422) {
+      const status = error.response.status;
+      const msg = error.response.statusText;
       return <ErrorInformations status={status} msg={msg} />;
     }
 
