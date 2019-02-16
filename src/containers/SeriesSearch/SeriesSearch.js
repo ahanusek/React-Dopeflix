@@ -24,6 +24,7 @@ class SeriesSearchContainer extends Component {
     }
 
     let SeriesSearchList;
+
     if (!loading) {
       SeriesSearchList = data.map(item => {
         return (
@@ -45,7 +46,7 @@ class SeriesSearchContainer extends Component {
         />
 
         {/* render of search list */}
-        <ul>{SeriesSearchList}</ul>
+        {this.state.inputValue ? <ul>{SeriesSearchList}</ul> : null}
       </>
     );
   }

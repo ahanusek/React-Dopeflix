@@ -43,7 +43,7 @@ class MovieSearchContainer extends Component {
           placeholder="Podaj nazwe filmu"
         />
 
-        <ul>{MovieSearchList}</ul>
+        {this.state.inputValue ? <ul>{MovieSearchList}</ul> : null}
       </>
     );
   }
