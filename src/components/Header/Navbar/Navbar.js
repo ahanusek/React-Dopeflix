@@ -7,26 +7,32 @@ class Navbar extends Component {
     mobileNav: false
   };
 
-  openNavbar = () => {
+  openMenu = () => {
     this.setState({
       mobileNav: !this.state.mobileNav
     });
+  };
+
+  hideMenu = () => {
+    this.setState({ mobileNav: null });
   };
 
   render() {
     let mobileNavbar;
 
     if (this.state.mobileNav) {
-      mobileNavbar = <NavbarMobile />;
+      mobileNavbar = <NavbarMobile hideMenu={this.hideMenu} />;
     }
 
     return (
       <div className="nav-container">
         <nav>
           <p className="nav-brand-logo">
-            <Link to="/">Dopeflix</Link>
+            <Link to="/" onClick={this.hideMenu}>
+              Dopeflix
+            </Link>
           </p>
-          <button className="nav-hamburger" onClick={this.openNavbar}>
+          <button className="nav-hamburger" onClick={this.openMenu}>
             <i className="fas fa-bars" />
           </button>
           {mobileNavbar}
